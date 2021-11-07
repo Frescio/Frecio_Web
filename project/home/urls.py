@@ -10,5 +10,5 @@ urlpatterns = [
     # path('register', views.register, name='register')
     # path('register', views.register, name='register')
     # path('register', include('accounts.urls')),
-
+    path( 'about', views.about, name='aboutus'),
 ]

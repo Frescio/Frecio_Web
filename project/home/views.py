@@ -12,6 +12,9 @@ def home(request):
 def register(request):
     return render( request, 'home/register.html' )
 
+def about(request):
+    return render( request, 'home/about.html')
+
 def fertilizer(request):
     context = {}
     # context['crop'] = {'sdf','asd','lol'}

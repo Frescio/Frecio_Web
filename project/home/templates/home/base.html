@@ -136,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'homepage' %} active {% endif %} " href="/">Home</a></li>
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'sell_crops' %} active {% endif %} " href="{% url 'sell_crops' %}">E-Bazaar</a></li>
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'fert_pred' %} active {% endif %} " href="{% url 'fert_pred' %}">Fertilizer</a></li>
-                                    <li><a href="gallery.html">About</a></li>
+                                    <li><a class="list-border {% if request.resolver_match.url_name == 'aboutus' %} active {% endif %} " href="{% url 'aboutus' %}">About</a></li>
                                     <li><a href="blog.html">Calendar</a></li>
                                     <li><a class="list-border1" href="contact.html">Contact</a></li>
                                 </ul>
@@ -158,7 +158,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="agile-footer-grids">
                     <div class="col-md-3 w3-agile-footer-grid">
                         <h3>About</h3>
-                        <p>Frescio is an initiative with the aim to promote Smart Agriculture among farmers. It is a digital hub for farmers to learn more about farming, cultivating their crops and recommendation systems for various problems they might face and at the same time providing a platform to sell their produce at fair prices by connecting them directly to buyers. Frescio is being designed to help farmers at every step of their journey.</p>
+                        <p style="width:500px; min-width:500px; max-width:500px;">Frescio is an initiative with the aim to promote Smart Agriculture among farmers. It is a digital hub for farmers to learn more about farming, cultivating their crops and recommendation systems for various problems they might face and at the same time providing a platform to sell their produce at fair prices by connecting them directly to buyers. Frescio is being designed to help farmers at every step of their journey.</p>
                     </div>
                     <!--<div class="col-md-3 w3-agile-footer-grid">
                         <h3>Events</h3>
@@ -170,18 +170,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li>09th Dec <a href="single.html">Cum sociis</a></li>
                         </ul>
                     </div>-->
-                    <div class="col-md-3 w3-agile-footer-grid">
+                    <div style="left:300px;" class="col-md-3 w3-agile-footer-grid">
                         <h3>Navigation</h3>
                         <ul>
-                            <li class="text"><a href="about.html">Home</a></li>
-                            <li class="text"><a href="typography.html">E-Bazaar</a></li>
-                            <li class="text"><a href="icons.html">Fertilizer</a></li>
-                            <li class="text"><a href="gallery.html">About</a></li>
+                            <li class="text"><a href="/">Home</a></li>
+                            <li class="text"><a href="{% url 'sell_crops' %}">E-Bazaar</a></li>
+                            <li class="text"><a href="{% url 'fert_pred' %}">Fertilizer</a></li>
+                            <li class="text"><a href="{% url 'aboutus' %}"">About</a></li>
                             <li class="text"><a href="blog.html">Calendar</a></li>
                             <li class="text"><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-3 w3-agile-footer-grid">
+                    <div style="left:260px;" class="col-md-3 w3-agile-footer-grid">
                         <h3>Newsletter</h3>
                         <form action="#" method="post">
                             <input type="email" id="mc4wp_email" name="EMAIL" placeholder="Enter your email here"
