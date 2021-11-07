@@ -3,10 +3,38 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import pandas as pd
 import csv
+import requests
 # Create your views here.
-
+API_KEY = 'd0b69496c18e463f888a273cb521ea9f'
 def home(request):
-    return render( request, 'home/homepage.html' )
+    url = f'https://newsapi.org/v2/everything?q=kharif + crop&from=2021-10-13&sortBy=publishedAt&apiKey={API_KEY}'
+    response = requests.get(url)
+    data = response.json()
+    articles = data['articles']
+    
+    
+    def smart_truncate(content, length=55, suffix='...'):
+        if len(content) <= length:
+            return content
+        else:
+            return ' '.join(content[:length+1].split(' ')[0:-1]) + suffix
+
+
+
+
+    for x in range(13):
+         string=articles[x]['title']
+         string=smart_truncate(string)
+         articles[x]['title']=string
+
+
+
+
+    
+    context = {
+        'articles0' : articles[0], 'articles1' : articles[1],'articles2' : articles[2],'articles3' : articles[3],'articles4' : articles[4],'articles5' : articles[5],'articles6' : articles[6],'articles7' : articles[7],'articles8' : articles[8],'articles9' : articles[9],'articles10' : articles[10],'articles11' : articles[11],'articles12' : articles[12]
+    }
+    return render( request, 'home/homepage.html', context )
     # return render(request, 'home/base.html' )
 
 def register(request):
