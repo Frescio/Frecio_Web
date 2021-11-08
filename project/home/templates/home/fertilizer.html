@@ -6,8 +6,8 @@
 <!--Form Section-->
 <br /><br />
 
-<h2 style="text-align: center; margin: 0px; color: black">
-    <b>Get informed advice on fertilizer based on soil</b>
+<h2 class="w3layouts-contact-form-top" style="font-family: 'Playball', cursive; text-align: center; margin: 0px; color: rgb(189 205 0)">
+    Get informed advice on fertilizer based on soil
 </h2>
 
 <br />
@@ -16,7 +16,8 @@
   padding: 10px;
   border: 5px solid gray;">
 
-    <form method="POST" action="{% url 'fert_res' %}" style=" padding-top: 20px; padding-left: 10px; padding-right: 10px; ">
+    <form method="POST" action="{% url 'fert_res' %}"
+        style=" padding-top: 20px; padding-left: 10px; padding-right: 10px; ">
         {% csrf_token %}
         <div class="form-group">
             <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen(N)</b></label>
@@ -43,39 +44,43 @@
         </div>
 
         <div class="form-group">
-            
-            
+
+
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
-            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
+                integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
+                integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
             <label for="crop" style="font-size: 17px"><b>Crop you want to grow</b></label>
-            <select id="select-state" name="cropname" class="form-control" id="crop" placeholder="Select a crop" style="font-weight: bold" required>
+            <select id="select-state" name="cropname" class="form-control" id="crop" placeholder="Select a crop"
+                style="font-weight: bold" required>
                 <option></option>
                 {% for opt in crop %}
-                    <option>{{opt}}</option>
+                <option>{{opt}}</option>
                 {% endfor %}
             </select>
-            
+
 
         </div>
 
 
         <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-info"
-                style=" color: black; font-weight: bold; width: 130px; height: 50px; border-radius: 12px; font-size: 21px; ">
+                style="background-color: rgb(189 205 0 / 52%); color: black; font-weight: bold; width: 130px; height: 50px; border-radius: 12px; font-size: 21px; ">
                 Predict
             </button>
         </div>
 
     </form>
-<script>
-  $(document).ready(function () {
-      $('select').selectize({
-          sortField: 'text'
-      });
-  });
-</script>
+    <script>
+        $(document).ready(function () {
+            $('select').selectize({
+                sortField: 'text'
+            });
+        });
+    </script>
 </div>
 </br>
 
