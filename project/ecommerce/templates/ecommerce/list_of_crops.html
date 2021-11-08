@@ -13,7 +13,7 @@
 
             {% include 'ecommerce/editModal.html' with edit_type='some_crop' %}
             
-            <button href="#" data-toggle="modal" data-target="#some_crop-{{ some_crop.id }} .editModal">Edit</button>
+            <button class="btn btn-outline-secondary add-btn" href="#" data-toggle="modal" data-target="#some_crop-{{ some_crop.id }} .editModal">Edit</button>
 
             <form action="" method="post">
               {% csrf_token %}
