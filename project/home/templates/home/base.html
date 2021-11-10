@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a><b style=" color:white;">Hello, {{request.user.first_name}}</b></a></li></br>
                                 <li><a href="{% url 'logout' %}"><b style=" color:white;">Logout</b></a></li>
                                 {% else %}
-                                <li><a href="{% url 'register' %}" role="button"><b style=" color:white;">Farmer Signup/Login</b></a></li>
+                                <li><a style=" color:white;" href="{% url 'register' %}" role="button">Signup/Login</a></li>
                                 {% endif %}
                             </ul>
                         </div>

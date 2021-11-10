@@ -3,13 +3,17 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db.models import fields
 from django.contrib.auth import authenticate
 from .models import User
+from django.utils.translation import ugettext_lazy as _
 
 class SignupForm(UserCreationForm):
     phone = forms.CharField(help_text="A valid phone no. id is required")
 
     class Meta:
         model = User
-        fields = ('phone', 'first_name', 'last_name', 'location', 'password1', 'password2')
+        fields = ('phone', 'first_name', 'last_name', 'isFarmer', 'location', 'password1', 'password2')
+        labels = {
+            'isFarmer': _('Do you want to register as a Farmer?'),
+        }
 
 class LoginForm(forms.ModelForm):
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
