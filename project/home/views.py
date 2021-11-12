@@ -7,6 +7,7 @@ import requests
 # Create your views here.
 API_KEY = 'd0b69496c18e463f888a273cb521ea9f'
 def home(request):
+   # url = f'https://newsapi.org/v2/everything?q=farmers + kharif + crop + india&from=2021-10-13&sortBy=publishedAt&apiKey={API_KEY}'
     url = f'https://newsapi.org/v2/everything?q=kharif + crop&from=2021-10-29&sortBy=publishedAt&apiKey={API_KEY}'
     response = requests.get(url)
     data = response.json()
