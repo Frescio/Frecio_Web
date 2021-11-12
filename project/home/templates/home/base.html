@@ -120,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="header-bottom">
                 <div class="container">
                     <div class="top-nav">
-                        <nav class="navbar navbar-default">
+                        <nav class="navbar navbar-expand">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                                     data-target="#bs-example-navbar-collapse-1">
@@ -131,9 +131,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </button>
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'homepage' %} active {% endif %} " href="/">Home</a></li>
+                            <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav" style="width:100%">
+                                    <li><a class="list-border {% if request.resolver_match.url_name == 'homepage' %} active {% endif %} "  href="/">Home</a></li>
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'sell_crops' %} active {% endif %} " href="{% url 'sell_crops' %}">E-Bazaar</a></li>
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'fert_pred' %} active {% endif %} " href="{% url 'fert_pred' %}">Fertilizer</a></li>
                                     <li><a href="gallery.html">About</a></li>
