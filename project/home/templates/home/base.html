@@ -134,7 +134,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'homepage' %} active {% endif %} " href="/">Home</a></li>
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'sell_crops' %} active {% endif %} " href="{% url 'sell_crops' %}">E-Bazaar</a></li>
+                                    <li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
+                                        data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">E-Bazaar<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'view_all_crops' %}">View Crops</a></li>
+                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'my_crops' %}">My Crops</a></li>
+                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'my_wishlist' %}">My Wishlist</a></li>
+                                        </ul>
+                                    </li>
+                                    
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'fert_pred' %} active {% endif %} " href="{% url 'fert_pred' %}">Fertilizer</a></li>
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'aboutus' %} active {% endif %} " href="{% url 'aboutus' %}">About</a></li>
                                     <li><a href="blog.html">Calendar</a></li>
@@ -174,7 +183,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h3>Navigation</h3>
                         <ul>
                             <li class="text"><a href="/">Home</a></li>
-                            <li class="text"><a href="{% url 'sell_crops' %}">E-Bazaar</a></li>
+                            
                             <li class="text"><a href="{% url 'fert_pred' %}">Fertilizer</a></li>
                             <li class="text"><a href="{% url 'aboutus' %}"">About</a></li>
                             <li class="text"><a href="blog.html">Calendar</a></li>
