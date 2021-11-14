@@ -55,14 +55,15 @@ def mycrops(request):
 
 def viewcrops(request):
     # return( request, 'ecommerce/view_your_added_crops.html')
-    all_crops = crop.objects.filter()
-    if request.user.is_authenticated:
-        if request.POST:
-            if request.POST.get('submit') == "add_to_wishlist":
-                crop_id = request.POST.get('crop_id')
-                wished = wishlist( user=request.user, crop = crop.objects.get(pk=crop_id) )
-                wished.save()
     
+    if request.user.is_authenticated:
+        all_crops = crop.objects.filter()
+        if request.POST:
+            crop_id = request.POST['crop_id']
+            wished = wishlist( user=request.user, crop = crop.objects.get(pk=crop_id) )
+            wished.save()
+        wish_list = wishlist.objects.filter(user=request.user)
+        
         return render( request, 'ecommerce/view_all_crops.html' , { 'all_crops':all_crops } )
     else:
         return HttpResponse("Sorry")
@@ -78,6 +79,9 @@ def mywishlist(request):
         #         wished = wishlist( user=request.user, crop = crop.objects.get(pk=crop_id) )
         #         wished.save()
                 
+        if request.POST.get('submit') == "remove_crop":
+                print("asdfsad")
+                wishlist.objects.filter(id=request.POST.get('wish_id')).delete()
         return render( request, 'ecommerce/list_of_wish.html', { 'wishlist':wish_list } )
     else:
         return HttpResponse("Sorry")

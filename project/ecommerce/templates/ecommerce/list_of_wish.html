@@ -3,24 +3,31 @@
 
 
 {% block body %}
-    <h2>Wishlisted crops</h2>
-    <br><br>
-
+    
+    <div class="about-heading">
+      <div class="container">
+        <h2>Wishlisted crops</h2>
+      </div>
+    </div>
+    <br>
 <!--List of All Crops-->
   <div class="row" style=" padding-left: 70px; padding-right: 70px">
     {% for some_crop in wishlist %}
         {{some_crop.price}}
         <div class="col-lg-4" id="some_crop-{{ some_crop.id }}" style=" padding-left: 25px; padding-right: 25px; margin-bottom: 120px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
-          <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.photo.url }}">
+          <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.crop.photo.url }}">
           <div class="box-element product">
-            <h6><strong>{{some_crop.crop_name}}</strong></h6>
+            <h6><strong>{{some_crop.crop.crop_name}}</strong></h6>
+            <h6>Farmer name: {{some_crop.user.first_name}} {{some_crop.user.last_name}}</h6>
+            <h6>Phone no: {{some_crop.phone}}</h6>
+            <h6>Location: {{some_crop.location}}</h6>
             <hr>
             <form action="" method="post">
               {% csrf_token %}
-              <input type="hidden" value={{ some_crop.id}} name="crop_id">
-              <button class="btn btn-outline-secondary add-btn" type="submit" name="submit" value="add_to_wishlist">Remove</button>
+              <input type="hidden" value={{some_crop.id}} name="wish_id">
+              <button class="btn btn-outline-secondary add-btn" type="submit" name="submit" value="remove_crop">Remove</button>
             </form>
-            <h4 style="display: inline-block; float: right"><strong>Rs. {{some_crop.price}}</strong></h4>
+            <h4 style="display: inline-block; float: right"><strong>Rs. {{some_crop.crop.price}}</strong></h4>
             
             <hr>
           </div>
@@ -30,5 +37,5 @@
     {% endfor %}
     
   </div>
- 
+ <br><br><br>
   {% endblock body %}
