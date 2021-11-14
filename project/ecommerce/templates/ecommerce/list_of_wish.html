@@ -14,13 +14,13 @@
   <div class="row" style=" padding-left: 70px; padding-right: 70px">
     {% for some_crop in wishlist %}
         {{some_crop.price}}
-        <div class="col-lg-4" id="some_crop-{{ some_crop.id }}" style=" padding-left: 25px; padding-right: 25px; margin-bottom: 120px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
+        <div class="col-lg-4" id="some_crop-{{ some_crop.id }}" style=" padding-left: 25px; padding-right: 25px; margin-bottom: 200px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
           <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.crop.photo.url }}">
           <div class="box-element product">
             <h6><strong>{{some_crop.crop.crop_name}}</strong></h6>
             <h6>Farmer name: {{some_crop.user.first_name}} {{some_crop.user.last_name}}</h6>
-            <h6>Phone no: {{some_crop.phone}}</h6>
-            <h6>Location: {{some_crop.location}}</h6>
+            <h6>Phone no: {{some_crop.user.phone}}</h6>
+            <h6>Location: {{some_crop.user.location}}</h6>
             <hr>
             <form action="" method="post">
               {% csrf_token %}
