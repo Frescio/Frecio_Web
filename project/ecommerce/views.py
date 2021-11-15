@@ -48,7 +48,7 @@ def mycrops(request):
 
         crops_added = crop.objects.filter(user=request.user)
         
-        return render( request, 'ecommerce/sell.html', {'crop':data,'crops_added': crops_added })
+        return render( request, 'ecommerce/view_your_added_crops.html', {'crop':data,'crops_added': crops_added })
     else:
         return HttpResponse("sorry")
     
