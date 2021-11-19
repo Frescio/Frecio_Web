@@ -21,7 +21,7 @@
 				</div>
 				<div class="agileits-contact-address">
 					<ul>
-						<li><i class="fa fa-phone" aria-hidden="true"></i> <span>+91 8847390611</span></li>
+						<li><i class="fa fa-phone" aria-hidden="true"></i> <span>+91 xxxxxxxxxx</span></li>
 						<li><i class="fa fa-phone fa-envelope" aria-hidden="true"></i> <span><a
 									href="mailto:frescio.farm@gmail.com">frescio.farm@gmail.com</a></span></li>
 						<li><i class="fa fa-map-marker" aria-hidden="true"></i> <span>Punjab Engineering College
@@ -34,15 +34,23 @@
 					<h3>Send us a message</h3>
 				</div>
 				<div class="agileinfo-contact-form-grid">
-					<form action="#" method="post">
-						<input type="text" name="Name" placeholder="Name" required="">
-						<input type="email" name="Email" placeholder="Email" required="">
-						<input type="text" name="Telephone" placeholder="Telephone" required="">
-						<textarea name="Message" placeholder="Message" required=""></textarea>
-						<button class="btn1">Submit</button>
+					<form action="" method="POST">
+						{% csrf_token %}
+						<input type="text" name="Name" placeholder="Name(required)" required>
+						<input type="email" name="Email" placeholder="Email">
+						<input type="text" name="Telephone" placeholder="Telephone(required)" required>
+						<textarea name="Message" placeholder="Message(required)" required></textarea>
+						<button type="submit" class="btn1">Submit</button>
 					</form>
 				</div>
 			</div>
+			<!-- {% if messages %}
+			<ul class="messages">
+				{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+					{% endfor %}
+			</ul>
+			{% endif %} -->
 			<div class="clearfix"> </div>
 		</div>
 
@@ -54,6 +62,18 @@
 		</div>
 	</div>
 </div>
+
+
+
+{% if messages %}
+	{% for message in messages %}
+		{% if message.tags %}
+			<script>
+				alert("{{ message }}");
+			</script>
+		{% endif %}
+	{% endfor %}
+{% endif %}
 
 <script
 	type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>

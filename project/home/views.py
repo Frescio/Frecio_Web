@@ -1,8 +1,11 @@
 from django.http.response import HttpResponse, HttpResponseNotModified
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.contrib import messages
 import pandas as pd
 import csv
+
 # Create your views here.
 
 def home(request):
@@ -16,8 +19,23 @@ def about(request):
     return render( request, 'home/about.html')
 
 def contact(request):
+    if request.POST:
+        name = request.POST['Name']
+        email =  request.POST['Email']
+        phone = request.POST['Telephone']
+        message = request.POST['Message']
+        send_mail(
+            'New Message Received',
+            "Message: {}\n\nFrom {}\nEmail: {}\nContact No: {}".format(message,name, email, phone),
+            '',
+            ['frescio.farm@gmail.com'],
+            fail_silently=False,
+        )
+        messages.success(request, 'Thank you for writing to us, we will contact you shortly!')
+        return redirect('contactus')
     return render( request, 'home/contact.html')
     
+
 def fertilizer(request):
     context = {}
     # context['crop'] = {'sdf','asd','lol'}
