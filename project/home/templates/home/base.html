@@ -11,6 +11,8 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Harvest Life Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script
         type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- bootstrap-css -->
@@ -109,7 +111,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a style=" color:white;">Hello, {{request.user.first_name}}</a></li></br>
                                 <li><a href="{% url 'logout' %}" style=" color:white;">Logout</a></li>
                                 {% else %}
-                                <li><a style=" color:white;" href="{% url 'register' %}" role="button">Signup/Login</a></li>
+                                <li><a style=" color:white;" href="{% url 'register' %}" role="button">Signup/Login</a>
+                                </li>
                                 {% endif %}
                             </ul>
                         </div>
@@ -133,21 +136,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'homepage' %} active {% endif %} " href="/">Home</a></li>
+                                    <li><a class="list-border {% if request.resolver_match.url_name == 'homepage' %} active {% endif %} "
+                                            href="/">Home</a></li>
                                     <li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
-                                        data-toggle="dropdown" role="button" aria-haspopup="true"
-                                        aria-expanded="false">E-Bazaar<span class="caret"></span></a>
+                                            data-toggle="dropdown" role="button" aria-haspopup="true"
+                                            aria-expanded="false">E-Bazaar<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'view_all_crops' %}">View Crops</a></li>
-                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'my_crops' %}">My Crops</a></li>
-                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'my_wishlist' %}">My Wishlist</a></li>
+                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'view_all_crops' %}">View
+                                                    Crops</a></li>
+                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'my_crops' %}">My Crops</a>
+                                            </li>
+                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'my_wishlist' %}">My
+                                                    Wishlist</a></li>
                                         </ul>
                                     </li>
-                                    
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'fert_pred' %} active {% endif %} " href="{% url 'fert_pred' %}">Fertilizer</a></li>
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'aboutus' %} active {% endif %} " href="{% url 'aboutus' %}">About</a></li>
+
+                                    <li><a class="list-border {% if request.resolver_match.url_name == 'fert_pred' %} active {% endif %} "
+                                            href="{% url 'fert_pred' %}">Fertilizer</a></li>
+                                    <li><a class="list-border {% if request.resolver_match.url_name == 'aboutus' %} active {% endif %} "
+                                            href="{% url 'aboutus' %}">About</a></li>
                                     <li><a href="blog.html">Calendar</a></li>
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'contactus' %} active {% endif %} " href="{% url 'contactus' %}">Contact</a></li>
+                                    <li><a class="list-border {% if request.resolver_match.url_name == 'contactus' %} active {% endif %} "
+                                            href="{% url 'contactus' %}">Contact</a></li>
                                 </ul>
                                 <div class="clearfix"> </div>
                             </div>
@@ -167,7 +177,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="agile-footer-grids">
                     <div class="col-md-3 w3-agile-footer-grid">
                         <h3>About</h3>
-                        <p style="width:500px; min-width:500px; max-width:500px;">Frescio is an initiative with the aim to promote Smart Agriculture among farmers. It is a digital hub for farmers to learn more about farming, cultivating their crops and recommendation systems for various problems they might face and at the same time providing a platform to sell their produce at fair prices by connecting them directly to buyers. Frescio is being designed to help farmers at every step of their journey.</p>
+                        <p style="width:500px; min-width:500px; max-width:500px;">Frescio is an initiative with the aim
+                            to promote Smart Agriculture among farmers. It is a digital hub for farmers to learn more
+                            about farming, cultivating their crops and recommendation systems for various problems they
+                            might face and at the same time providing a platform to sell their produce at fair prices by
+                            connecting them directly to buyers. Frescio is being designed to help farmers at every step
+                            of their journey.</p>
                     </div>
                     <!--<div class="col-md-3 w3-agile-footer-grid">
                         <h3>Events</h3>
@@ -183,10 +198,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h3>Navigation</h3>
                         <ul>
                             <li class="text"><a href="/">Home</a></li>
-                            
+
                             <li class="text"><a href="{% url 'fert_pred' %}">Fertilizer</a></li>
                             <li class="text"><a href="{% url 'aboutus' %}"">About</a></li>
-                            <li class="text"><a href="blog.html">Calendar</a></li>
+                            <li class=" text"><a href="blog.html">Calendar</a></li>
                             <li class="text"><a href="{% url 'contactus' %}">Contact</a></li>
                         </ul>
                     </div>

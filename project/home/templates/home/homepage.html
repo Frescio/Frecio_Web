@@ -2,135 +2,278 @@
 {% load static %}
 
 {% block body %}
+<style media="screen">
+  .carousel-cell {
+    width: 100%;
+  }
 
+  /* cell number */
+  .carousel-cell:before {
+    display: block;
+  }
+
+  .float-layout {
+    padding: 5px 5px;
+    float: left;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    min-height: 300px;
+    max-height: 300px;
+  }
+
+  .card-container {
+    overflow: hidden;
+
+    min-height: 300px;
+    max-height: 300px;
+  }
+
+  .card {
+    background-color: dodgerblue;
+    color: black;
+    min-height: 300px;
+    max-height: 300px;
+    /*replace this it in width: 100%*/
+    width: 50%;
+    float: right;
+    
+  }
+
+  .card-title {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 20px;
+    
+  }
+
+  .card-desc {
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  /*add this it*/
+  .card-image {
+    display: flex;
+    min-height: 300px;
+    max-height: 300px;
+  }
+
+  /*-------------*/
+
+  div.card-image img {
+    width: 50%;
+    min-height: 100%;
+    max-height: 100%;
+  }
+
+  /* Phone Devices Query */
+  @media only screen and (max-width: 37.5em) {
+    div.card-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    /*add this it*/
+    .card-image {
+      flex-direction: column;
+    }
+
+    /*----------------------*/
+
+    .card {
+      width: 100%;
+      margin-top: -4px;
+    }
+  }
+</style>
 <!-- welcome -->
 <div class="welcome">
-    <div class="container">
-        <div class="w3-welcome-grids">
-            <div class="col-md-5 w3l-welcome-left">
-                <h2>Welcome <span>to Farm Frescio</span></h2>
-                <p>A one stop solution to help farmers through every aspect of their Farming Journey! Farm Frescio website is an initiative for facilitating farmers to find a reliable buyer and sell their organic produce and promoting organic farming and its benefits. This portal caters various stakeholders like local groups, individual farmers, buyers and input suppliers. It also provides various models and features to help farmers solve various problems that they might face during their farming journey.</p>
-            </div>
-            <div class="col-md-7 w3l-welcome-right">
-                <div class="w3l-welcome-right-grids">
-                    <div class="col-sm-5 w3l-welcome-right-img">
-                        <img src="{% static 'home/images/4.jpg' %}" alt="" />
-                    </div>
-                    <div class="col-sm-7 w3l-welcome-right-img1">
-                        <img src="{% static 'home/images/5.jpg' %}" alt="" />
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="clearfix"> </div>
+  <div class="container">
+    <div class="w3-welcome-grids">
+      <div class="col-md-5 w3l-welcome-left">
+        <h2>Welcome <span>to Farm Frescio</span></h2>
+        <p>A one stop solution to help farmers through every aspect of their Farming Journey! Farm Frescio website is an
+          initiative for facilitating farmers to find a reliable buyer and sell their organic produce and promoting
+          organic farming and its benefits. This portal caters various stakeholders like local groups, individual
+          farmers, buyers and input suppliers. It also provides various models and features to help farmers solve
+          various problems that they might face during their farming journey.</p>
+      </div>
+      <div class="col-md-7 w3l-welcome-right">
+        <div class="w3l-welcome-right-grids">
+          <div class="col-sm-5 w3l-welcome-right-img">
+            <img src="{% static 'home/images/4.jpg' %}" alt="" />
+          </div>
+          <div class="col-sm-7 w3l-welcome-right-img1">
+            <img src="{% static 'home/images/5.jpg' %}" alt="" />
+          </div>
+          <div class="clearfix"> </div>
         </div>
+      </div>
+      <div class="clearfix"> </div>
     </div>
+  </div>
 </div>
 <!-- //welcome -->
 <!---728x90--->
 
 <!-- services -->
 <div class="services">
-    <div class="container">
-        <div class="agileits-services-grids">
-            <div class="col-md-4 agileinfo-services-left">
-                <h3>Our <span>Services</span></h3>
-                <p>Farm Frescio includes various features namely an e-commerce platform to facilitate easier buying and selling of crops at reasonable prices by eliminating the middle man, an agricultural bot to answer every question related to farming and other aspects and a fertiliser recommendation system to help farmers control the NPK values of their soil. The website also incorporates a pest predicton and disease prediction system to assist farmers in identifying pests and any diseases that might be affecting their crop. Hence, the website is a one stop solution for all farmers and aims to uplift farmers of Punjab.
-                </p>
-            </div>
-            <div class="col-md-8 agileinfo-services-right">
-                <div class="col-md-6 w3-agileits-services-grid">
-                    <i style="color:rgb(189 205 0); font-size: 2rem;" class="fa fa-leaf" aria-hidden="true"></i>
-                    <h4>E-commerce Platform</h4>
-                    <p>To Facilitate easier buying and selling of crops at reasonable prices by eliminating the middle man.</p>
-                </div>
-                <div class="col-md-6 w3-agileits-services-grid agile-services1">
-                    <i style="color:rgb(189 205 0); font-size: 2rem;" class="fa fa-leaf" aria-hidden="true"></i>
-                    <h4>Multilingual Agricultural Bot</h4>
-                    <p>To answer every question related to farming and other aspects.</p>
-                </div>
-                <div class="col-md-6 w3-agileits-services-grid">
-                    <i style="color:rgb(189 205 0); font-size: 2rem;" class="fa fa-leaf" aria-hidden="true"></i>
-                    <h4>Soil recommendation</h4>
-                    <p>To recommend methods to mantain the NPK values and pH of the soil.</p>
-                </div>
-                <div class="col-md-6 w3-agileits-services-grid">
-                    <i style="color:rgb(189 205 0); font-size: 2rem;" class="fa fa-leaf" aria-hidden="true"></i>
-                    <h4>Pest and Disease Prediction</h4>
-                    <p>To identify pests and diseases that might be attackng the farmer's crops.</p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="clearfix"> </div>
+  <div class="container">
+    <div class="agileits-services-grids">
+      <div class="col-md-4 agileinfo-services-left">
+        <h3>Our <span>Services</span></h3>
+        <p>Farm Frescio includes various features namely an e-commerce platform to facilitate easier buying and selling
+          of crops at reasonable prices by eliminating the middle man, an agricultural bot to answer every question
+          related to farming and other aspects and a fertiliser recommendation system to help farmers control the NPK
+          values of their soil. The website also incorporates a pest predicton and disease prediction system to assist
+          farmers in identifying pests and any diseases that might be affecting their crop. Hence, the website is a one
+          stop solution for all farmers and aims to uplift farmers of Punjab.
+        </p>
+      </div>
+      <div class="col-md-8 agileinfo-services-right">
+        <div class="col-md-6 w3-agileits-services-grid">
+          <i style="color:rgb(189 205 0); font-size: 2rem;" class="fa fa-leaf" aria-hidden="true"></i>
+          <h4>E-commerce Platform</h4>
+          <p>To Facilitate easier buying and selling of crops at reasonable prices by eliminating the middle man.</p>
         </div>
+        <div class="col-md-6 w3-agileits-services-grid agile-services1">
+          <i style="color:rgb(189 205 0); font-size: 2rem;" class="fa fa-leaf" aria-hidden="true"></i>
+          <h4>Multilingual Agricultural Bot</h4>
+          <p>To answer every question related to farming and other aspects.</p>
+        </div>
+        <div class="col-md-6 w3-agileits-services-grid">
+          <i style="color:rgb(189 205 0); font-size: 2rem;" class="fa fa-leaf" aria-hidden="true"></i>
+          <h4>Soil recommendation</h4>
+          <p>To recommend methods to mantain the NPK values and pH of the soil.</p>
+        </div>
+        <div class="col-md-6 w3-agileits-services-grid">
+          <i style="color:rgb(189 205 0); font-size: 2rem;" class="fa fa-leaf" aria-hidden="true"></i>
+          <h4>Pest and Disease Prediction</h4>
+          <p>To identify pests and diseases that might be attackng the farmer's crops.</p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="clearfix"> </div>
     </div>
+  </div>
 </div>
 <!-- //services -->
 <!---728x90--->
-
+<br><br>
 <!-- news -->
 <div class="news">
-    <div class="container">
-        <div class="wthree-news-grids">
-            <div class="col-md-4 agileinfo-services-left agile-news-left">
-                <h3>Latest <span>News</span></h3>
-                <p>Nulla eu erat risus. Curabitur in purus porta, suscipit nisi sit amet, maximus purus. Fusce
-                    nulla nibh, porttitor eu velit id, cursus mattis nibh. Phasellus dapibus aliquam urna in
-                    maximus. Phasellus dolor est, lobortis sit amet ultricies tincidunt, aliquet mattis risus.
-                </p>
-            </div>
-            <div class="col-md-8 agile-news-right">
-                <div class="col-md-6 agile-news-right-info">
-                    <div class="col-md-6 agile-news-img">
+  <div class="container">
+    <div class="wthree-news-grids">
+      <div class="col-md-4 agileinfo-services-left agile-news-left">
+        <h3>Latest<br><span>Agricultural<br>News</span></h3>
 
-                    </div>
-                    <div class="col-md-6 agile-news-img-info">
-                        <h5><a href="{% static 'home/single.html' %}">Lorem ipsum dolor</a></h5>
-                        <div class="agileits-w3layouts-border"> </div>
-                        <p>Maecenas et suscipit augue. Aenean at ultricies lacus.</p>
-                        <!-- <h6><i class="fa fa-calendar" aria-hidden="true"></i> 24th Dec,2016</h6> -->
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="col-md-6 agile-news-right-info">
-                    <div class="col-md-6 agile-news-img agile-news-img1">
+      </div>
+      <div class="col-md-8 agile-news-right">
+        <div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded":true }'>
 
+          <div class="carousel-cell">
+            <div class="card-container">
+              <div class="float-layout">
+                <div class="card-image">
+                  <img src="{{ articles0.urlToImage }}">
+                  <div style="background-color: #3b363d; position: relative;" class="card">
+                    <div style="color:white; padding:3%;" class="card-title">{{ articles0.title }}</div>
+                    <div style="color:white;" class="card-desc">
+                      Source: {{ articles0.source.name }} <br>
+                      Date: {{ articles0.publishedAt }}
                     </div>
-                    <div class="col-md-6 agile-news-img-info">
-                        <h5><a href="{% static 'home/single.html' %}">Lorem ipsum dolor</a></h5>
-                        <div class="agileits-w3layouts-border"> </div>
-                        <p>Maecenas et suscipit augue. Aenean at ultricies lacus.</p>
-                        <!-- <h6><i class="fa fa-calendar" aria-hidden="true"></i> 13th Nov,2016</h6> -->
-                    </div>
-                    <div class="clearfix"> </div>
+                    <footer style="margin-bottom:5%; text-align: center;">
+                      <a href="{{ articles0.url }}" target="_blank" class="btn btn-success m-1">See News</a>
+                    </footer>
+
+                  </div>
                 </div>
-                <div class="clearfix"> </div>
+              </div>
             </div>
-            <div class="clearfix"> </div>
+          </div>
+
+
+
+          <div class="carousel-cell">
+            <div class="card-container">
+              <div class="float-layout">
+                <div class="card-image">
+                  <img src="{{ articles1.urlToImage }}">
+                  <div style="background-color: #3b363d; " class="card">
+                    <div style="color:white;padding:3%;" class="card-title">{{ articles1.title }}</div>
+                    <div style="color:white;" class="card-desc">
+                      Source: {{ articles1.source.name }} <br>
+                      Date: {{ articles1.publishedAt }}
+                    </div>
+                    <footer style="margin-bottom:5%; text-align: center;">
+                      <a href="{{ articles1.url }}" target="_blank" class="btn btn-success m-1">See News</a>
+                    </footer>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="carousel-cell">
+            <div class="card-container">
+              <div class="float-layout">
+                <div class="card-image">
+                  <img src="{{ articles2.urlToImage }}">
+                  <div style="background-color: #3b363d; " class="card">
+                    <div style="color:white;padding:3%" class="card-title">{{ articles2.title }}</div>
+                    <div style="color:white;" class="card-desc">
+                      Source: {{ articles2.source.name }} <br>
+                      Date: {{ articles2.publishedAt }}
+                    </div>
+                    <footer style="margin-bottom:5%; text-align: center;">
+                      <a href="{{ articles2.url }}" target="_blank" class="btn btn-success m-1">See News</a>
+                    </footer>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 
+
+
+<br><br>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="{% static 'home/js/responsiveslides.min.js' %}"></script>
 <script src="{% static 'home/js/SmoothScroll.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'home/js/move-top.js' %}"></script>
 <script type="text/javascript" src="{% static 'home/js/easing.js' %}"></script>
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
-    $(document).ready(function () {
-        /*
-            var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear' 
-            };
-        */
+  $(document).ready(function () {
+    /*
+        var defaults = {
+        containerID: 'toTop', // fading element id
+        containerHoverID: 'toTopHover', // fading element hover id
+        scrollSpeed: 1200,
+        easingType: 'linear' 
+        };
+    */
 
-        $().UItoTop({ easingType: 'easeOutQuart' });
+    $().UItoTop({ easingType: 'easeOutQuart' });
 
-    });
+  });
 </script>
 <!-- //here ends scrolling icon -->
 
