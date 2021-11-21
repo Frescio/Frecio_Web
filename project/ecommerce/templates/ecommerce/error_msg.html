@@ -1,0 +1,11 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+<br>
+<div style="text-align: center;">
+    {% for message in messages %}
+        <h1>{{message}}</h1>
+    {% endfor %}
+</div>
+<br>
+{% endblock body %}
