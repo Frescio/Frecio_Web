@@ -1,0 +1,115 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+
+
+<div class="about-heading">
+    <div class="container">
+        <h2>Get mandi price</h2>
+    </div>
+</div>
+<br>
+
+
+<div style=" width: 500px; height: 33rem; margin: 0px auto; color: black; border-radius: 25px; padding: 20px 20px;
+  padding: 10px;
+  border: 5px solid gray;">
+
+    <form method="POST" action="{% url 'mandi_res' %}"
+        style=" padding-top: 20px; padding-left: 10px; padding-right: 10px; ">
+        {% csrf_token %}
+        
+
+        
+
+        <div class="form-group">
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
+                integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
+                integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+            <label for="commodity" style="font-size: 17px"><b>commodity</b></label>
+            <select id="select-state" name="commodity" class="form-control" id="commodity" placeholder="Select a commodity"
+                style="font-weight: bold" required>
+                <option></option>
+                {% for opt in commodity %}
+                <option>{{opt}}</option>
+                {% endfor %}
+            </select>
+
+
+        </div>
+
+        <div class="form-group">
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
+                integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
+                integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+            <label for="state" style="font-size: 17px"><b>state</b></label>
+            <select id="select-state" name="state" class="form-control" id="state" placeholder="Select state"
+                style="font-weight: bold" required>
+                <option></option>
+                {% for opt in state %}
+                <option>{{opt}}</option>
+                {% endfor %}
+            </select>
+
+
+        </div>
+
+        <div class="form-group">
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
+                integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
+                integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+            <label for="district" style="font-size: 17px"><b>district</b></label>
+            <select id="select-state" name="district" class="form-control" id="district" placeholder="Select district"
+                style="font-weight: bold" required>
+                <option></option>
+                {% for opt in district %}
+                <option>{{opt}}</option>
+                {% endfor %}
+            </select>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-info"
+                style="background-color: rgb(189 205 0 / 52%); color: black; font-weight: bold; width: 130px; height: 50px; border-radius: 12px; font-size: 21px; ">
+                Submit
+            </button>
+        </div>
+
+    </form>
+    <script>
+        $(document).ready(function () {
+            $('select').selectize({
+                sortField: 'text'
+            });
+        });
+    </script>
+</div>
+</br>
+
+
+{% endblock %}
