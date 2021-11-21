@@ -5,6 +5,8 @@ import csv
 from user.models import crop
 from user.models import wishlist
 # Create your views here.
+from django.core import serializers
+
 
 def mycrops(request):
     if request.user.is_authenticated:
@@ -57,13 +59,19 @@ def viewcrops(request):
     # return( request, 'ecommerce/view_your_added_crops.html')
     
     if request.user.is_authenticated:
-        all_crops = crop.objects.filter()
+        all_crops = crop.objects.raw("select * from user_crop where user_crop.id != user_wishlist.crop")
+        # print("xxxxxxxxxxxxxxxxxx",all_crops2,all_crops)
         if request.POST:
             crop_id = request.POST['crop_id']
             wished = wishlist( user=request.user, crop = crop.objects.get(pk=crop_id) )
             wished.save()
-        wish_list = wishlist.objects.filter(user=request.user)
-        
+        # for p in crop.objects.raw('SELECT * FROM myapp_crop'):
+        #     print(p)
+        wish_list = serializers.serialize("json", wishlist.objects.filter(user=request.user))
+        print(wish_list)
+        # for pair in wish_list:
+        #     if pair.crop in all_crops:
+
         return render( request, 'ecommerce/view_all_crops.html' , { 'all_crops':all_crops } )
     else:
         return HttpResponse("Sorry")

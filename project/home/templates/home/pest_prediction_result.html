@@ -1,0 +1,29 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+
+<style>
+    div.card3 {
+        width: 250px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    div.container3 {
+        padding: 10px;
+    }
+</style>
+<div class="card3" style="width: 80%; margin: auto; margin-top: 20px; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
+    <div class="container3">
+        {{result}}
+        <br>
+        <br>
+        {% for l in recommendations %}
+            {{l}}
+            <br>
+            
+        {% endfor %}
+
+    </div>
+</div>
+<br>
+{% endblock %}
