@@ -181,57 +181,10 @@ def mandipred(request):
         print(state)
         print(district)
         print(commodity)
-        #PH = request.POST['ph']
-        #crop_name = request.POST['cropname']
-        #data=pd.read_csv('home/fertilizer.csv')
-        # data.drop("Unnamed: 0",axis=1,inplace=True)
-        # n_actual = data[data['Crop'] == crop_name]['N'].iloc[0]
-        #p_actual = data[data['Crop'] == crop_name]['P'].iloc[0]
-        #k_actual = data[data['Crop'] == crop_name]['K'].iloc[0]
-        #p_actual=  data[data['Crop'] == crop_name]['pH'].iloc[0]
-
-        #n = n_actual - int(N)
-        #p = p_actual - int(P)
-        #k = k_actual - int(K)
-        #ph = p_actual - int(PH)
         
-        #nkey=""
-        #pkey=""
-        #kkey=""
-        #phkey=""
-        #if n < -10:
-            #nkey = "NHigh"
-        #elif n>10:
-            #nkey = "Nlow"
-        #else:
-           # nkey="Nok"
+       
             
-        #if p < -10:
-           # pkey = "PHigh"
-        #elif p>10:
-           # pkey = "Plow"
-        #else:
-            #pkey="Pok"
-
-        #if k < -10:
-            #kkey = "KHigh"
-        #elif k>10:
-            #kkey = "Klow"
-        #else:
-            #kkey="Kok"
-            
-        #if ph<-10:
-           # phkey="phHigh"
-        #elif ph>10:
-            #phkey="phLow"
-        #else:
-            #phkey="phok"
-        
-        
-        #context['nkey'] = nkey
-        #context['pkey'] = pkey
-        #context['kkey'] = kkey
-        #context['phkey'] = phkey
+       
 
         #url = f'https://newsapi.org/v2/top-headlines?country={country}&apiKey={API_KEY}'
         url=f'https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd00000105e2ba56e600420b6fbbdfd39f5af462&format=json&offset=0&limit=1000'
@@ -267,7 +220,7 @@ def mandipred(request):
         a=len(records)
         if a !=0:
             context = {'records' : records}
-            return render( request, 'ecommerce/mandi_result_test.html', context)
+            return render( request, 'ecommerce/mandi_result_table.html', context)
 
         else:
             #number="empty"
