@@ -4,10 +4,11 @@ from django.db.models import fields
 from django.contrib.auth import authenticate
 from .models import User
 from django.utils.translation import ugettext_lazy as _
+from phonenumber_field.formfields import PhoneNumberField
 
 class SignupForm(UserCreationForm):
-    phone = forms.CharField(help_text="A valid phone no. id is required")
-
+    # phone = forms.CharField(help_text="A valid phone no. id is required")
+    phone = PhoneNumberField()
     class Meta:
         model = User
         fields = ('phone', 'first_name', 'last_name', 'isFarmer', 'location', 'password1', 'password2')

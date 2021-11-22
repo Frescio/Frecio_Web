@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db.models.deletion import CASCADE
+from phonenumber_field.modelfields import PhoneNumberField
 from django.db.models.fields.related import ManyToManyField
 from slugify import slugify
 # Create your models here.
@@ -47,7 +48,8 @@ class MyUserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     username = None
-    phone = models.CharField(max_length=20,unique=True, primary_key=True)
+    phone = PhoneNumberField(null=False, blank=False, unique=True, primary_key=True)
+    # phone = models.CharField(max_length=20,unique=True, primary_key=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     location = models.CharField(max_length=200)

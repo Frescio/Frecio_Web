@@ -5,6 +5,7 @@ import csv
 from user.models import crop
 from user.models import wishlist
 from django.contrib import messages
+
 # Create your views here.
 from django.core import serializers
 
@@ -89,7 +90,9 @@ def viewcrops(request):
 
         return render( request, 'ecommerce/view_all_crops.html' , { 'all_crops':all_crops, 'wished_crop':wish_list} )
     else:
-        return HttpResponse("Sorry")
+        messages.info(request, 'Please Login/Register to view this page.')
+        return render( request, 'ecommerce/error_msg.html')
+        # return HttpResponse("Sorry")
 
 def mywishlist(request):
 
@@ -107,7 +110,9 @@ def mywishlist(request):
                 wishlist.objects.filter(id=request.POST.get('wish_id')).delete()
         return render( request, 'ecommerce/list_of_wish.html', { 'wishlist':wish_list } )
     else:
-        return HttpResponse("Sorry")
+        messages.info(request, 'Please Login/Register to view this page.')
+        return render( request, 'ecommerce/error_msg.html')
+        # return HttpResponse("Sorry")
 
 def sellcrops(request):
     print("bbbbbbb")
