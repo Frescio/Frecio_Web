@@ -136,8 +136,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'pest_pred' %} active {% endif %} " href="{% url 'pest_pred' %}">Pest Prediction</a></li>
-                                    <li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
+                                    
+                                    <li class="list-border"><a href="#" class="list-border dropdown-toggle hvr-bounce-to-bottom"
                                             data-toggle="dropdown" role="button" aria-haspopup="true"
                                             aria-expanded="false">E-Bazaar<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
@@ -149,12 +149,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     Wishlist</a></li>
                                         </ul>
                                     </li>
-
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'fert_pred' %} active {% endif %} "
-                                            href="{% url 'fert_pred' %}">Fertilizer</a></li>
+                                        href="{% url 'fert_pred' %}">Fertilizer Prediction</a></li>
+
+                                    <li><a class="list-border {% if request.resolver_match.url_name == 'pest_pred' %} active {% endif %} " href="{% url 'pest_pred' %}">Pest Prediction</a></li>
+                                    
+                                    <li><a class="list-border {% if request.resolver_match.url_name == 'dis_pred' %} active {% endif %} " href="{% url 'dis_pred' %}">Disease Prediction</a></li>
+                                    
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'aboutus' %} active {% endif %} "
-                                            href="{% url 'aboutus' %}">About</a></li>
-                                    <li><a href="blog.html">Calendar</a></li>
+                                        href="{% url 'aboutus' %}">About</a></li>
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'contactus' %} active {% endif %} "
                                             href="{% url 'contactus' %}">Contact</a></li>
                                 </ul>

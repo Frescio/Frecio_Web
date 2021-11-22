@@ -296,3 +296,5 @@ def pest_pre_result(request):
     return render( request, 'home/pest_pred_tem.html')
 
 
+def disease_pred(request):
+    return render( request, 'home/disease_predict.html')

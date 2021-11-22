@@ -14,5 +14,5 @@ urlpatterns = [
     # path('register', include('accounts.urls')),
     path( 'about', views.about, name='aboutus'),
     path( 'contact', views.contact, name='contactus'),
-
+    path( 'dis_pred', views.disease_pred, name="dis_pred"),
 ]

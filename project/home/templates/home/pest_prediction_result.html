@@ -14,9 +14,8 @@
 </style>
 <div class="card3" style="width: 80%; margin: auto; margin-top: 20px; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
     <div class="container3">
-        {{result}}
-        <br>
-        <br>
+        <h4><b>Our Model predicted: {{result|title}}</b></h4> 
+        
         {% for l in recommendations %}
             {{l}}
             <br>
