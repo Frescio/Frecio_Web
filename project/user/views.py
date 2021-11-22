@@ -55,3 +55,6 @@ def usrlogout(request):
     logout(request)
     return redirect('/')
 
+def profile(request):
+    
+    return render(request, 'user/profile.html')

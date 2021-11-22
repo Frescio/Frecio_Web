@@ -176,6 +176,11 @@ def mandipred(request):
         commodity = request.POST['commodity']
         state = request.POST['state']
         district= request.POST['district']
+
+
+        print(state)
+        print(district)
+        print(commodity)
         #PH = request.POST['ph']
         #crop_name = request.POST['cropname']
         #data=pd.read_csv('home/fertilizer.csv')
@@ -256,9 +261,15 @@ def mandipred(request):
                 elif state == 'All':
                     final.append(i)
 
-        records=final            
-        context = {
-        'records' : records
-    }
+        records=final  
 
-        return render( request, 'ecommerce/mandi_result_test.html', context)
+        print(len(records))
+        a=len(records)
+        if a !=0:
+            context = {'records' : records}
+            return render( request, 'ecommerce/mandi_result_test.html', context)
+
+        else:
+            #number="empty"
+            #context = {'number' : number}
+            return render( request, 'ecommerce/mandi_result_sorry.html')    
