@@ -2,7 +2,266 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<style>
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Graphik,avenir next,avenir,Helvetica,sans-serif;
+  background-color: white;
+}
 
+input[type="file"]{
+  display: none;
+}
+
+.floating-btn {
+  width: 50px;
+  height: 50px;
+  background: #f5af09;
+  text-decoration: none;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 40px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  transition: background-color 0.25s ease-out, box-shadow 0.25s ease-out;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.floating-btn:hover {
+  box-shadow: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
+}
+
+
+.floating-btn.clicked {
+  background-color: #4169cc;
+}
+
+.floating-btn i {
+  transition: transform 0.25s cubic-bezier(.4, 0, .2, 1);
+}
+
+.floating-btn.clicked i {
+  transform: rotate(315deg);
+}
+
+#labelFile{
+  color: white;
+  height: 30px;
+  width: 125px;
+  background-color: #f5af09;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#legal{
+  margin: 16px auto;
+  text-align: center;
+  color: #ccc;
+  font-size: 10px;
+  max-width: 25em;
+  line-height: 1.0;
+  letter-spacing: .2px;
+}
+
+#inputFile{
+  border: 0 !important;
+  margin-bottom: 10px;
+}
+
+.icon{
+  margin-right: 8px;
+  opacity: 0.5;
+  font-size: 21px;
+}
+
+#iconPhoto{
+  margin-right: 8px;
+  opacity: 0.7;
+  font-size: 18px;
+}
+
+.form-box {
+  margin: 16px auto;
+  font-size: 16px;
+  border-radius: 9px;
+  position: fixed;
+  opacity: 0;
+  overflow: hidden;
+  bottom: 0;
+  right: 10px;
+  transform: translate(-50%,-50%);
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+  background-color: #f5f5f7;
+  transition: all .25s ease-in-out;
+}
+
+.form-box.open {
+  transform: translate(10px, -70px);
+  height: 490px;
+  width: 366px;
+  opacity: 1;
+}
+
+.test{
+  background-color: #fff;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top:10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+
+}
+
+.login-header {
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  background: #4169cc;
+  padding: 23px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.form-box input{
+  padding: 10px 0;
+  margin-bottom: 30px;
+
+}
+.form-box textarea{
+  height: 80px;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.form-box input,.form-box textarea{
+  width: 100%;
+  box-shadow: none;
+  outline: none;
+  box-sizing: border-box;
+  border: none;
+  cursor: text;
+  border-bottom: 1px solid #dcdcdc;
+  transition: .3s width ease-in-out;
+  margin: none;
+  
+}
+
+.form-box input[type="submit"]{
+  border-bottom: none;
+  cursor: pointer;
+  background: #4169cc;
+  color: #fff;
+  margin-bottom: 0;
+}
+.form-box form div{
+  position: relative;
+}
+
+#submitButt{
+  width: 30%;
+  margin-left: 121px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  opacity: 10;
+}
+
+.active{
+  opacity: 0.7 !important;
+}
+
+.form-box form div .inputLabel{
+  position: absolute;
+  left: -1px;
+  top: 8px;
+  pointer-events: none;
+  color: #999;
+  transition: .2s ease-in-out;
+  font-size: 14px;
+}
+
+.form-box input:focus ~ .inputLabel,
+.form-box textarea:focus ~ .inputLabel,
+.form-box input:valid ~ .inputLabel,
+.form-box textarea:valid ~ .inputLabel{
+  top: -12px;
+  left: 0;
+  color: #4169cc;
+  font-size: 10px;
+  font-weight: bold;
+  transition: .2s ease-in-out;
+}
+
+.form-box input:focus,
+.form-box textarea:focus,
+.form-box textarea:valid,
+.form-box input:valid{
+  width: 100%;
+  border-bottom: 2px solid rgb(76, 118, 224);
+}
+
+.footer{
+  margin-bottom: 0;
+  min-height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  background: #fff;
+  margin-bottom: 0px;
+  border-radius: 0 0 6px 6px;
+}
+
+.msg_receive{
+  background-color: lightgrey;
+  width: 250px;
+  padding: 10px;
+  margin: 10px;
+  margin-right:60px;
+}
+.msg_sent{
+  background-color: rgb(189 205 0);;
+  width: 250px;
+  padding: 10px;
+  margin: 10px;
+  margin-left:60px;
+}
+
+</style>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
@@ -187,16 +446,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             connecting them directly to buyers. Frescio is being designed to help farmers at every step
                             of their journey.</p>
                     </div>
-                    <!--<div class="col-md-3 w3-agile-footer-grid">
-                        <h3>Events</h3>
-                        <ul>
-                            <li>12th Aug <a href="single.html">Curabitur</a></li>
-                            <li>10th Sept <a href="single.html">Fusce urna</a></li>
-                            <li>24th Sept <a href="single.html">Praesent</a></li>
-                            <li>17th Oct <a href="single.html">Malesuada </a></li>
-                            <li>09th Dec <a href="single.html">Cum sociis</a></li>
-                        </ul>
-                    </div>-->
+                    
                     <div style="left:300px;" class="col-md-3 w3-agile-footer-grid">
                         <h3>Navigation</h3>
                         <ul>
@@ -220,32 +470,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
             </div>
         </div>
-        <!-- //footer -->
-        <!-- copyright -->
-        <!--<div class="copyright">
-            <div class="container">
-                <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </p>
-            </div>
-        </div>-->
-        <!-- //copyright -->
+            
+                <div class="form-box "  id="myDIV">
+                    {% include 'home/chatbot.html' %}
+  
+                    <div>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <input style="width:280px;margin-left:25px ;margin-right:10px"  type="text" name="Name" placeholder="Name(required)" required>
+                            <button><i class="fa fa-paper-plane" type="submit" style="color:rgb(189 205 0); font-size: 1.4rem;" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                </div>
+            <button style="background-color:rgb(189 205 0);" class="floating-btn" onclick="myFunction()">
+            <i class="fas fa-comments" aria-hidden="true"></i>
+
+            </button>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                <script>
+                $('#submitButt').click(function() {
+                    $(this).toggleClass('active');
+                });
+                $(function() {
+                    $("#test").focus();
+                });
+                
+                function myFunction() {
+                var x = document.getElementById("myDIV");
+            console.log(x);
+            console.log(x.classList.contains('open'));
+                if (x.classList.contains('open')) {
+                    x.classList.remove("open");
+                } else {
+                    x.classList.add("open");
+                    document.getElementById("test").focus();
+
+                }
+                }
+        </script>
+
         <script src="{% static 'home/js/SmoothScroll.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'home/js/move-top.js' %}"></script>
+        {% comment %} <script type="text/javascript" src="{% static 'home/js/move-top.js' %}"></script> {% endcomment %}
         <script type="text/javascript" src="{% static 'home/js/easing.js' %}"></script>
         <!-- here stars scrolling icon -->
         <script type="text/javascript">
+
             $(document).ready(function () {
-                /*
-                    var defaults = {
-                    containerID: 'toTop', // fading element id
-                    containerHoverID: 'toTopHover', // fading element hover id
-                    scrollSpeed: 1200,
-                    easingType: 'linear' 
-                    };
-                */
-
                 $().UItoTop({ easingType: 'easeOutQuart' });
-
             });
+            
         </script>
         <!-- //here ends scrolling icon -->
         <!-- parallax -->

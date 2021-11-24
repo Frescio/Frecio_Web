@@ -350,3 +350,19 @@ def edit_profile(request):
         print("FFFFFFFFFF")
         print(context['city'])
         return render( request, 'home/edit_profile.html', context)
+    
+def get_bot_response():
+    # userText = request.args.get('msg')
+    # return str(chatbot.get_response(userText))
+    return 'Hi'
+
+
+def chatbot_index(request):
+    return render( request, 'home/chatbot.html')
+
+def chatbot(request):
+
+    message = request.GET.get('msg')
+    #model(msg)
+    res='hi '+message
+    return HttpResponse(res)  
