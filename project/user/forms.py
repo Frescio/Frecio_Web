@@ -10,7 +10,7 @@ class SignupForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('phone', 'first_name', 'last_name', 'isFarmer', 'location', 'password1', 'password2')
+        fields = ('phone', 'first_name', 'last_name', 'isFarmer', 'password1', 'password2')
         labels = {
             'isFarmer': _('Do you want to register as a Farmer?'),
         }

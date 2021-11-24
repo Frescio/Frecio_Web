@@ -104,31 +104,49 @@ border: 3px solid gray;" >
                     </div>
                 </button> 
                 <br>
-                <span style="text-align:center;" class="name mt-3">Eleanor Pena</span> 
+                <span style="text-align:center;" class="name mt-3">{{request.user.first_name}} {{request.user.last_name}}</span> 
                 <br>
-                <span class="idd">@eleanorpena</span>
-                <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
+                {% if request.user.isFarmer %}
+                    <span class="idd">Farmer</span>
+                {% else %}
+                <span class="idd">Customer</span>
+                {% endif %}
+                <br>
+                <!-- <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
                     <span class="idd1">Oxc4c16a645_b21a</span> 
                     <span><i class="fa fa-copy"></i></span> 
-                </div>
-                <br>
+                </div> -->
+                <!-- <br>
                 <div class="d-flex flex-row justify-content-center align-items-center mt-3"> 
                     <span class="number">1069 
                         <span class="follow">Followers</span>
                     </span> 
-                </div>
-                <br>
-                <div class=" d-flex mt-2"> 
-                    <button class="btn1 btn-dark">Edit Profile</button> 
-                </div>
-                <br>
+                </div> -->
+                
                 <div class="text mt-3"> 
-                    <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.
-                        <br><br> Artist/ Creative Director by Day #NFT minting@ with FND night. 
+                    <span>
+                        State: 
+                        {% for loc in location %}
+                            {{loc.state}}
+                        {% endfor %}
+                        <br>
+                        City: 
+                        {% for loc in location %}
+                            {{loc.city}}
+                        {% endfor %}
                     </span> 
                 </div>
+
+                <form method="POST" action="{% url 'edit_profile' %}" style=" padding-top: 20px; padding-left: 10px; padding-right: 10px; ">
+                    {% csrf_token %}
+                    <div class=" d-flex mt-2"> 
+                        <button class="btn1 btn-dark">Edit Profile</button> 
+                    </div>
+                
+                </form>
                 <br>
-                <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> 
+                
+                <!-- <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> 
                     <span>
                         <i class="fa fa-twitter"></i>
                     </span> 
@@ -142,7 +160,7 @@ border: 3px solid gray;" >
                         <i class="fa fa-linkedin"></i>
                     </span> 
                 </div>
-                <br>
+                <br> -->
             </div>
         </div>
     </div>

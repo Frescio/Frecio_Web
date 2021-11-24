@@ -9,10 +9,13 @@ import requests
 from keras.preprocessing import image
 from tensorflow import keras
 import cv2
+from user.models import location
 import matplotlib.pyplot as plt
 import numpy
 
 from django.core.files.storage import FileSystemStorage
+
+
 img_height, img_width=64,64
 # Create your views here.
 API_KEY = 'd0b69496c18e463f888a273cb521ea9f'
@@ -300,4 +303,50 @@ def disease_pred(request):
     return render( request, 'home/disease_predict.html')
 
 def profile(request):
-    return render( request, 'home/profile.html')
+    if request.POST:
+        first = request.POST['first']
+        last = request.POST['last']
+        ustate = request.POST['state']
+        ucity = request.POST['city']
+        # User.objects.filter(user=request.user).update(first_name=first, last_name=last)
+        try:
+            address = location.objects.get(user=request.user)
+            location.objects.filter(user=request.user).update( state=ustate, city=ucity)
+        except:
+            address = location( user=request.user, state=ustate, city=ucity )
+            address.save()
+
+    address = location.objects.filter(user=request.user)
+    context = {'location':address}
+    print("aaaaaaa")
+    print(address)
+    return render( request, 'home/profile.html', context)
+
+def edit_profile(request):
+
+    ustate = " "
+    ucity = " "
+    
+    try:
+        address = location.objects.get(user=request.user)
+        context = {}
+        
+        print("bbbbb")
+        print(address)
+        print("Cccc")
+        print(address.state)
+        ustate = address.state
+        ucity = address.city
+        context['state'] = ustate
+        context['city'] = ucity
+        
+        return render( request, 'home/edit_profile.html', context)
+    
+    except:
+        context = {}
+        context['state'] = "NA"
+        context['city'] = "NA"
+        print(context['state'])
+        print("FFFFFFFFFF")
+        print(context['city'])
+        return render( request, 'home/edit_profile.html', context)

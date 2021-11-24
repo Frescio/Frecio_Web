@@ -16,4 +16,5 @@ urlpatterns = [
     path( 'contact', views.contact, name='contactus'),
     path( 'dis_pred', views.disease_pred, name="dis_pred"),
     path('profile', views.profile, name='my_profile'),
+    path( 'editprofile', views.edit_profile, name = 'edit_profile'),
 ]
