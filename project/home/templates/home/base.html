@@ -108,11 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="agileinfo-social-grids">
                             <ul>
                                 {% if request.user.is_authenticated %}
-<<<<<<< HEAD
-                                <li><a href="{% url 'profile' %}" style=" color:white;">Hello, {{request.user.first_name}}</a></li></br>
-=======
                                 <li><a style=" color:white;" href="{% url 'my_profile' %}">Hello, {{request.user.first_name}}</a></li></br>
->>>>>>> 35baff21633b3f495ddde82721b117ad085e3feb
                                 <li><a href="{% url 'logout' %}" style=" color:white;">Logout</a></li>
                                 {% else %}
                                 <li><a style=" color:white;" href="{% url 'register' %}" role="button">Signup/Login</a>
