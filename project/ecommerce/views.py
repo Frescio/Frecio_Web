@@ -1,8 +1,10 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
 import csv
+import requests
 
 from user.models import crop
+
 from user.models import wishlist
 from django.contrib import messages
 # Create your views here.
@@ -159,3 +161,95 @@ def sellcrops(request):
         return render( request, 'ecommerce/sell.html', {'crop':data, 'crops_added': crops_added ,"all_crops":all_crops })
     else:
         return HttpResponse("sorry")
+
+
+def mandi(request):
+    context = {}
+    # context['crop'] = {'sdf','asd','lol'}
+    data1=[]
+    # data = pd.read_csv("fertilizer.csv")
+    with open('home/commodity.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            data1.append(row[0])
+    data1.sort()
+    context['commodity'] = data1
+
+
+    data2=[]
+    # data = pd.read_csv("fertilizer.csv")
+    with open('home/state.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            data2.append(row[0])
+    data2.sort()
+    context['state'] = data2
+
+    data3=[]
+    # data = pd.read_csv("fertilizer.csv")
+    with open('home/district.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            data3.append(row[0])
+    data3.sort()
+    context['district'] = data3
+
+
+
+    return render( request, 'ecommerce/mandi.html',context)
+
+def mandipred(request):
+    if request.POST:
+        commodity = request.POST['commodity']
+        state = request.POST['state']
+        district= request.POST['district']
+
+
+        print(state)
+        print(district)
+        print(commodity)
+        
+       
+            
+       
+
+        #url = f'https://newsapi.org/v2/top-headlines?country={country}&apiKey={API_KEY}'
+        url=f'https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd00000105e2ba56e600420b6fbbdfd39f5af462&format=json&offset=0&limit=1000'
+        response = requests.get(url)
+        data = response.json()
+        records = data['records']
+        final =[]
+
+        for i in records:
+            if i['commodity'] == commodity:
+                if i['state'] == state:
+                    if i['district'] == district:
+                        final.append(i)
+                    elif district == 'All':
+                        final.append(i)    
+                
+                elif state == 'All':
+                    final.append(i)        
+                
+            elif commodity == 'All':
+                if i['state'] == state:
+                    if i['district'] == district:
+                        final.append(i)
+                    elif district == 'All':
+                        final.append(i)
+        
+                elif state == 'All':
+                    final.append(i)
+
+        records=final  
+
+        print(len(records))
+        a=len(records)
+        if a !=0:
+            context = {'records' : records, 'commodity': commodity}
+            return render( request, 'ecommerce/mandi_result_table.html', context)
+
+        else:
+            #number="empty"
+            #context = {'number' : number}
+            return render( request, 'ecommerce/mandi_result_sorry.html')    
