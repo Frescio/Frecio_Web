@@ -5,12 +5,18 @@
 {% block body %}
 
     <!-- <h2>List of all crops</h2> -->
-    <div class="about-heading">
+    <!-- <div class="about-heading">
         <div class="container">
           <h2>Mandi Price of commodities</h2>
         </div>
       </div>
-      <br><br>
+      <br><br> -->
+      <div class="about-heading">
+        <div class="container">
+            <h2>Mandi Prices of {{some.commodity}}:</h2>
+        </div>
+    </div>
+    <br>
   <div class="row" style=" padding-left: 70px; padding-right: 70px">
     {% for some in records %}
 

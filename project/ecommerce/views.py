@@ -246,7 +246,7 @@ def mandipred(request):
         print(len(records))
         a=len(records)
         if a !=0:
-            context = {'records' : records}
+            context = {'records' : records, 'commodity': commodity}
             return render( request, 'ecommerce/mandi_result_table.html', context)
 
         else:
