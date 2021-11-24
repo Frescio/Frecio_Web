@@ -39,6 +39,33 @@
       
      
     {% endfor %}
+
+    {% for some_crop in wished_crop %}
+
+        <div class="col-lg-4" id="some_crop-{{ some_crop.id }}" style=" padding-left: 25px; padding-right: 25px; margin-bottom: 200px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
+          <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.crop.photo.url }}">
+          <div class="box-element product">
+            <h6><strong>{{some_crop.crop.crop_name}}</strong></h6>
+            <h6>Farmer Name: {{some_crop.user.first_name}} {{some_crop.user.last_name}}</h6>
+            <h6>Phone no: {{some_crop.user.phone}}</h6>
+            <!-- <h6>Phone no: {{some_crop.user.phone}}</h6> -->
+            <h6>Location: {{some_crop.user.location}}</h6>
+            <hr>
+
+            
+              <button class="btn btn-outline-secondary add-btn" >Added to Wishlist</button>
+
+
+            <h4 style="display: inline-block; float: right"><strong>Rs. {{some_crop.crop.price}}</strong></h4>
+            
+            <hr>
+          </div>
+        </div>
+      
+     
+    {% endfor %}
+
+
     
   </div>
   

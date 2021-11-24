@@ -1,0 +1,80 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+
+
+<div class="about-heading">
+    <div class="container">
+        <h2>Pest Prediction</h2>
+    </div>
+</div>
+<br>
+
+
+<div style=" width: 500px; margin: 0px auto; color: rgb(189 205 0); padding: 20px 20px;
+  padding: 10px;
+  border: 3px solid gray;">
+
+    <form method="POST" action="{% url 'pest_res' %}" enctype="multipart/form-data"
+        style=" padding-top: 20px; padding-left: 10px; padding-right: 10px; ">
+        {% csrf_token %}
+
+        <div >
+        <!-- <div class="about-heading">
+        <h2>Upload Pest Image</h2>
+        </div> -->
+            <div class="avatar-upload">
+                <div class="avatar-edit">
+                    <label class="input-group-text" for="inputGroupFile01">Upload Pest image here:</label>
+                    <br><br>
+                    <input type="file" class="form-control"  id="inputGroupFile01" name="pest_photo" >
+                </div>
+                <div class="avatar-preview">
+                    <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="d-flex justify-content-center">
+            <!-- <button type="submit" class="btn1" type="submit" name="submit" value="predict_pest"
+                style="background-color: rgb(189 205 0 / 52%); color: black; font-weight: bold; width: 130px; height: 50px; border-radius: 12px; font-size: 21px; ">
+                Predict
+            </button> -->
+            <button type="submit" class="btn1" name="submit" style="border: 3px solid gray;" value="predict_pest" >Submit</button>
+        </div>
+        <br>
+    </form>
+{{is_result}}
+    {% if is_result == 'true' %}
+
+        <h2>result - {{result}}</h2>
+
+    {% endif %}
+
+    <script>
+        $(document).ready(function () {
+            $('select').selectize({
+                sortField: 'text'
+            });
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imageUpload").change(function() {
+            readURL(this);
+        });
+    </script>
+</div>
+</br>
+<br>
+<br>
+{% endblock %}

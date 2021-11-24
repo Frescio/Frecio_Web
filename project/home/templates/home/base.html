@@ -108,7 +108,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="agileinfo-social-grids">
                             <ul>
                                 {% if request.user.is_authenticated %}
+<<<<<<< HEAD
                                 <li><a href="{% url 'profile' %}" style=" color:white;">Hello, {{request.user.first_name}}</a></li></br>
+=======
+                                <li><a style=" color:white;" href="{% url 'my_profile' %}">Hello, {{request.user.first_name}}</a></li></br>
+>>>>>>> 35baff21633b3f495ddde82721b117ad085e3feb
                                 <li><a href="{% url 'logout' %}" style=" color:white;">Logout</a></li>
                                 {% else %}
                                 <li><a style=" color:white;" href="{% url 'register' %}" role="button">Signup/Login</a>
@@ -136,9 +140,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'homepage' %} active {% endif %} "
-                                            href="/">Home</a></li>
-                                    <li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
+                                    
+                                    <li class="list-border"><a href="#" class="list-border dropdown-toggle hvr-bounce-to-bottom"
                                             data-toggle="dropdown" role="button" aria-haspopup="true"
                                             aria-expanded="false">E-Bazaar<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
@@ -151,12 +154,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <li><a class="hvr-bounce-to-bottom" href="{% url 'mandi_pred' %}">Mandi Prices</a></li>        
                                         </ul>
                                     </li>
-
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'fert_pred' %} active {% endif %} "
-                                            href="{% url 'fert_pred' %}">Fertilizer</a></li>
+                                        href="{% url 'fert_pred' %}">Fertilizer Prediction</a></li>
+
+                                    <li><a class="list-border {% if request.resolver_match.url_name == 'pest_pred' %} active {% endif %} " href="{% url 'pest_pred' %}">Pest Prediction</a></li>
+                                    
+                                    <li><a class="list-border {% if request.resolver_match.url_name == 'dis_pred' %} active {% endif %} " href="{% url 'dis_pred' %}">Disease Prediction</a></li>
+                                    
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'aboutus' %} active {% endif %} "
-                                            href="{% url 'aboutus' %}">About</a></li>
-                                    <li><a href="blog.html">Calendar</a></li>
+                                        href="{% url 'aboutus' %}">About</a></li>
                                     <li><a class="list-border {% if request.resolver_match.url_name == 'contactus' %} active {% endif %} "
                                             href="{% url 'contactus' %}">Contact</a></li>
                                 </ul>
@@ -201,7 +207,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li class="text"><a href="/">Home</a></li>
 
                             <li class="text"><a href="{% url 'fert_pred' %}">Fertilizer</a></li>
-                            <li class="text"><a href="{% url 'aboutus' %}"">About</a></li>
+                            <li class="text"><a href="{% url 'aboutus' %}">About</a></li>
                             <li class=" text"><a href="blog.html">Calendar</a></li>
                             <li class="text"><a href="{% url 'contactus' %}">Contact</a></li>
                         </ul>
