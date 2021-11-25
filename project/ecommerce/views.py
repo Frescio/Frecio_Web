@@ -97,7 +97,33 @@ def viewcrops(request):
         # for pair in wish_list:
         #     if pair.crop in all_crops:
 
-        return render( request, 'ecommerce/view_all_crops.html' , { 'all_crops':all_crops, 'wished_crop':wish_list} )
+        data1=[]
+        # data = pd.read_csv("fertilizer.csv")
+        with open('home/commodity.csv', 'r') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                data1.append(row[0])
+        data1.sort()
+        # context['commodity'] = data1
+        data2=[]
+        # data = pd.read_csv("fertilizer.csv")
+        with open('home/state.csv', 'r') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                data2.append(row[0])
+        data2.sort()
+        # context['state'] = data2
+
+        data3=[]
+        # data = pd.read_csv("fertilizer.csv")
+        with open('home/district.csv', 'r') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                data3.append(row[0])
+        data3.sort()
+        # context['district'] = data3
+        
+        return render( request, 'ecommerce/view_all_crops.html' , { 'all_crops':all_crops, 'wished_crop':wish_list, 'commodity':data1, 'state':data2, 'district': data3} )
     else:
         messages.info(request, 'Please Login/Register to view this page.')
         return render( request, 'ecommerce/error_msg.html')
@@ -261,3 +287,21 @@ def mandipred(request):
             #number="empty"
             #context = {'number' : number}
             return render( request, 'ecommerce/mandi_result_sorry.html')    
+
+
+
+def farmerpro(request):
+    # return HttpResponse("HHH")
+    # far_id = request.POST['farmer_id']
+    first = request.POST['first']
+    last = request.POST['last']
+    phone = request.POST['phone']
+    state = request.POST['state']
+    city = request.POST['city']
+    # address = location.objects.filter(user=far_id)
+    print(first)
+    print(last)
+    context = {'first_name':first, 'last_name':last, 'phone':phone, 'state':state, 'city':city}
+    print("aaaaaaa")
+    # print(address)
+    return render( request, 'ecommerce/farm_profile.html', context)

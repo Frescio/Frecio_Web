@@ -22,6 +22,19 @@
             <h6>Phone no: {{some_crop.user.phone}}</h6>
             <!-- <h6>Location: {{some_crop.user.location}}</h6> -->
             <hr>
+            <div style="margin-bottom: 5px;">
+              <form action="{% url 'farmer_profile' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" value={{some_crop.user.first_name}} name='first'>
+                <input type="hidden" value={{some_crop.user.last_name}} name='last'>
+                <input type="hidden" value={{some_crop.user.phone}} name='phone'>
+                <input type="hidden" value={{some_crop.user.location_set.all.0.state}} name='state'>
+                <input type="hidden" value={{some_crop.user.location_set.all.0.city}} name='city'>
+                
+                <button class="btn btn-outline-secondary add-btn" type="submit">View Farmer's Profile</button>
+              </form>
+              </div>
+              
             <form action="" method="post">
               {% csrf_token %}
               <input type="hidden" value={{some_crop.id}} name="wish_id">
