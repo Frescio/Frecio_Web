@@ -1,0 +1,302 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day"],
+         "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye"],
+         "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"]
+        },
+        {"tag": "rice_rainfall",
+         "patterns": ["What is the amount of rainfall required for rice", "Rainfall for rice", "rice rainfall","rice rainfall requirement", "rice rain"],
+         "responses": ["A monthly rainfall of 100-200 mm","100-200 mm"]
+        },
+	{"tag": "ragi_rainfall",
+         "patterns": ["What is the amount of rainfall required for ragi", "Rainfall for ragi", "ragi rainfall","ragi rainfall requirement", "ragi rain"],
+         "responses": ["It requires 800 mm to 1,200 mm of water with extremes between 520 mm and 2,550 mm during the growing season","A monthly rainfall of 800-1200 mm","800-1200 mm"]
+        },
+	{"tag": "jowar_rainfall",
+         "patterns": ["What is the amount of rainfall required for jowar", "Rainfall for jowar", "jowar rainfall","jowar rainfall requirement", "jowar rain"],
+         "responses": ["Jowar crop requires rainfall about 40 cm annually","About 40 cm annually"]
+        },
+	{"tag": "maize_rainfall",
+         "patterns": ["What is the amount of rainfall required for maize", "Rainfall for maize", "maize rainfall","maize rainfall requirement", "maize rain"],
+         "responses": ["It mostly in grown regions having annual rainfall between 60 cm to 110 cm.","60-110 cm"]
+        },
+	{"tag": "pulses_rainfall",
+         "patterns": ["What is the amount of rainfall required for pulses", "Rainfall for pulses", "pulses rainfall","pulses rainfall requirement", "pulses rain"],
+         "responses": ["It requires a moderate amount of rainfall of 25-75 cms.","25-75 cms"]
+        },
+	{"tag": "Cotton_rainfall",
+         "patterns": ["What is the amount of rainfall required for Cotton", "Rainfall for Cotton", "Cotton rainfall","Cotton rainfall requirement", "Cotton rain"],
+         "responses": ["Annual rainfall of 55-100 cm is ideal for cotton Cultivation","55-100 cm"]
+        },
+	{"tag": "sugarcane_rainfall",
+         "patterns": ["What is the amount of rainfall required for sugarcane", "Rainfall for sugarcane", "sugarcane rainfall","sugarcane rainfall requirement", "sugarcane rain"],
+         "responses": ["100 cm to 175 cm rainfall is ideal for sugarcane production","100-175 cm"]
+        },
+	{"tag": "wheat_rainfall",
+         "patterns": ["What is the amount of rainfall required for wheat", "Rainfall for wheat", "wheat rainfall","wheat rainfall requirement", "wheat rain"],
+         "responses": ["The amount of rainfall required for wheat cultivation varies between 30 cm and 100 cm.","30-100 cm"]
+        },
+	{"tag": "rice_soil",
+         "patterns": ["What is the soil suitable for rice", "soil for rice", "rice soil","rice soil requirement"],
+         "responses": ["This rice is suitable for Red soil and Black cotton soil.","Red soil and Black cotton soil"]
+        },
+	{"tag": "ragi_soil",
+         "patterns": ["What is the soil suitable for ragi", "soil for ragi", "ragi soil","ragi soil requirement"],
+         "responses": ["red lateritic soils"]
+        },
+	{"tag": "jowar_soil",
+         "patterns": ["What is the soil suitable for jowar", "soil for jowar", "jowar soil","jowar soil requirement"],
+         "responses": ["Grows well in loam soils having good drainage.","Soil pH range of 6 to 7.5 is ideal for its cultivation and better growth.", "Soil pH 6 to 7.5"]
+        },
+	{"tag": "maize_soil",
+         "patterns": ["What is the soil suitable for maize", "soil for maize", "maize soil","maize soil requirement"],
+         "responses": ["Best suitable soil is deep, red rich soils , where there is abundant nitrogen.","Deep, red rich soils"]
+        },
+	{"tag": "Pulses_soil",
+         "patterns": ["What is the soil suitable for Pulses", "soil for Pulses", "Pulses soil","Pulses soil requirement"],
+         "responses": ["The most ideal soil would be a well drained loam with a pH range from 4.7 to 7.5.","pH range from 4.7 to 7.5.", "well drained loam"]
+        },
+	{"tag": "Cotton_soil",
+         "patterns": ["What is the soil suitable for Cotton", "soil for Cotton", "Cotton soil","Cotton soil requirement"],
+         "responses": ["Suitable for Red soil and Black cotton soil.","Red soil and Black cotton soil"]
+        },
+	{"tag": "Sugarcane_soil",
+         "patterns": ["What is the soil suitable for Sugarcane", "soil for Sugarcane", "Sugarcane soil","Sugarcane soil requirement"],
+         "responses": [" It grows well in deep, well-drained soils of medium fertility of sandy loam soil textures with a pH range from 6.0 to 7.7.","pH range from 6.0 to 7.7.","deep, well-drained soils of medium fertility of sandy loam soil textures"]
+        },
+	{"tag": "wheat_soil",
+         "patterns": ["What is the soil suitable for wheat", "soil for wheat", "wheat soil","wheat soil requirement"],
+         "responses": ["This wheat is suitable for Red soil." ,"Red soil"]
+        },
+	{"tag": "rice_irrigation",
+         "patterns": ["What is the irrigation for rice", "irrigation for rice", "irrigation rice","rice irrigation requirement"],
+         "responses": ["It requires 800 mm to 1,200 mm of water with extremes between 520 mm and 2,550 mm during the growing season.","800 mm to 1200 mm of water"]
+        },
+	{"tag": "ragi_irrigation",
+         "patterns": ["What is the irrigation for ragi", "irrigation for ragi", "irrigation ragi","ragi irrigation requirement"],
+         "responses": ["It is suited for cultivation in areas with annual rainfall of 700-1200mm. It does not tolerate heavy rainfall and requires a dry spell at the time of grain ripening."]
+        },
+	{"tag": "Jowar_irrigation",
+         "patterns": ["What is the irrigation for Jowar", "irrigation for Jowar", "irrigation Jowar","Jowar irrigation requirement"],
+         "responses": ["It requires 450 to 650 l of water"]
+        },
+	{"tag": "maize_irrigation",
+         "patterns": ["What is the irrigation for maize", "irrigation for maize", "irrigation maize","maize irrigation requirement"],
+         "responses": ["It requires 450 to 650 l of water","450-650 l of water"]
+        },
+	{"tag": "pulses_irrigation",
+         "patterns": ["What is the irrigation for pulses", "irrigation for pulses", "irrigation pulses","pulses irrigation requirement"],
+         "responses": ["It requires 500 to 700 liter of water","500 - 700 litre of water"]
+        },
+	{"tag": "Cotton_irrigation",
+         "patterns": ["What is the irrigation for Cotton", "irrigation for Cotton", "irrigation Cotton","Cotton irrigation requirement"],
+         "responses": ["Individual cotton plant requires about 10 gallons of water to achieve maximum yield potential.","10 gallons of water"]
+        },
+	{"tag": "sugarcane_irrigation",
+         "patterns": ["What is the irrigation for sugarcane", "irrigation for sugarcane", "irrigation sugarcane","sugarcane irrigation requirement"],
+         "responses": ["A crop requires 1500- 2500 mm of available water per year","1500- 2500 mm of available water"]
+        },
+	{"tag": "wheat_irrigation",
+         "patterns": ["What is the irrigation for wheat", "irrigation for wheat", "irrigation wheat","wheat irrigation requirement"],
+         "responses": ["A crop requires 450-650 mm of available water per year","450-650 mm"]
+        },
+	{"tag": "rice_sowing_time",
+         "patterns": ["What is the sowing time for rice", "sowing time for rice", "sowing period rice","rice sowing time"],
+         "responses": ["The sowing time of Madhu rice are Kharif (April – September), Rabi (October – December), Summer/Zaid (January – March)"]
+        },
+	{"tag": "ragi_sowing_time",
+         "patterns": ["What is the sowing time for ragi", "sowing time for ragi", "sowing period ragi","ragi sowing time"],
+         "responses": ["The sowing time is between Kar or Early Kharif (April - August),Kharif (July - November),Late kharif (August - November) ,Rabi (October -September) Summer (January - May)"]
+        },
+	{"tag": "jowar_sowing_time",
+         "patterns": ["What is the sowing time for jowar", "sowing time for jowar", "sowing period jowar","jowar sowing time"],
+         "responses": ["The sowing time is between 5th September to 15th October"]
+        },
+	{"tag": "maize_sowing_time",
+         "patterns": ["What is the sowing time for maize", "sowing time for maize", "sowing period maize","maize sowing time"],
+         "responses": ["The sowing time is between May -August"]
+        },
+	{"tag": "pulses_sowing_time",
+         "patterns": ["What is the sowing time for pulses", "sowing time for pulses", "sowing period pulses","pulses sowing time"],
+         "responses": ["The sowing time is between (Kharif) May - August,(Rabi) September - February"]
+        },
+	{"tag": "Cotton_sowing_time",
+         "patterns": ["What is the sowing time for Cotton", "sowing time for Cotton", "sowing period Cotton","Cotton sowing time"],
+         "responses": ["The sowing time is between July -September or February - March"]
+        },
+	{"tag": "Sugarcane_sowing_time",
+         "patterns": ["What is the sowing time for Sugarcane", "sowing time for Sugarcane", "sowing period Sugarcane","Sugarcane sowing time"],
+         "responses": ["In general January to march is the period of planting"]
+        },
+	{"tag": "wheat_sowing_time",
+         "patterns": ["What is the sowing time for wheat", "sowing time for wheat", "sowing period wheat","wheat sowing time"],
+         "responses": ["Sowing of wheat takes place in October to December"]
+        },
+	{"tag": "rice_maturity_time",
+         "patterns": ["What is the maturity time for rice", "maturity time for rice", "maturity period rice","rice maturity time"],
+         "responses": ["Time taken to mature is 120-125 days.","120-125 days"]
+        },
+	{"tag": "ragi_maturity_time",
+         "patterns": ["What is the maturity time for ragi", "maturity time for ragi", "maturity period ragi","ragi maturity time"],
+         "responses": ["Time taken to mature is 110-115 days.","110-115 days"]
+        },
+	{"tag": "jowar_maturity_time",
+         "patterns": ["What is the maturity time for jowar", "maturity time for jowar", "maturity period jowar","jowar maturity time"],
+         "responses": ["Time taken to mature is 180-240 days.","180-240 days"]
+        },
+	{"tag": "maize_maturity_time",
+         "patterns": ["What is the maturity time for maize", "maturity time for maize", "maturity period maize","maize maturity time"],
+         "responses": ["Time taken to mature is 120 days.","120 days"]
+        },
+	{"tag": "pulses_maturity_time",
+         "patterns": ["What is the maturity time for pulses", "maturity time for pulses", "maturity period pulses","pulses maturity time"],
+         "responses": ["Time taken to mature is 80 to 100 days.","80-100 days"]
+        },
+	{"tag": "cotton_maturity_time",
+         "patterns": ["What is the maturity time for rice", "maturity time for rice", "maturity period rice","rice maturity time"],
+         "responses": ["Time taken to mature is approximately 150 to 180 days","150 - 180 days"]
+        },
+	{"tag": "sugarcane_maturity_time",
+         "patterns": ["What is the maturity time for sugarcane", "maturity time for sugarcane", "maturity period sugarcane","sugarcane maturity time"],
+         "responses": ["It takes about 12 to 18 months to mature.","12-18 months"]
+        },
+	{"tag": "wheat_maturity_time",
+         "patterns": ["What is the maturity time for rice", "maturity time for rice", "maturity period rice","rice maturity time"],
+         "responses": ["Maturity time is around four months.","four months"]
+        },
+	{"tag": "rice_seedrate",
+         "patterns": ["What is the seed requirement for rice", "seed rate for rice", "seed requirement rice","seed rate rice"],
+         "responses": ["Seed requirement is 20 kg per hectare.","20 kg per hectare"]
+        },
+	{"tag": "ragi_seedrate",
+         "patterns": ["What is the seed requirement for ragi", "seed rate for ragi", "seed requirement ragi","seed rate ragi"],
+         "responses": ["Seed requirement is 10 to 15 kg per hectare","10 - 15 kg per hectare"]
+        },
+	{"tag": "jowar_seedrate",
+         "patterns": ["What is the seed requirement for jowar", "seed rate for jowar", "seed requirement jowar","seed rate jowar"],
+         "responses": ["Seed requirement is 8 kg seed/ha.","8 kg seed/ha"]
+        },
+	{"tag": "maize_seedrate",
+         "patterns": ["What is the seed requirement for maize", "seed rate for maize", "seed requirement maize","seed rate maize"],
+         "responses": ["Seed requirement is 25 kg/ha","25 kg per hectare"]
+        },
+	{"tag": "pulses_seedrate",
+         "patterns": ["What is the seed requirement for pulses", "seed rate for pulses", "seed requirement pulses","seed rate pulses"],
+         "responses": ["Seed requirement is 20 kg per hectare.","20 kg per hectare"]
+        },
+	{"tag": "cotton_seedrate",
+         "patterns": ["What is the seed requirement for cotton", "seed rate for cotton", "seed requirement cotton","seed rate cotton"],
+         "responses": ["On average 90.000-100.000 plants per hectare."]
+        },
+	{"tag": "sugarcane_seedrate",
+         "patterns": ["What is the seed requirement for sugarcane", "seed rate for sugarcane", "seed requirement sugarcane","seed rate sugarcane"],
+         "responses": ["On an average 36,000 three budded setts or 60 quintal of seed are sufficient for planting one hectare land area."]
+        },
+	{"tag": "wheat_seedrate",
+         "patterns": ["What is the seed requirement for rice", "seed rate for rice", "seed requirement rice","seed rate time"],
+         "responses": ["With an average seed size of 15,000 seeds per pound or 900,000 seeds per bushel"]
+        },
+	{"tag": "rice_yield",
+         "patterns": ["What is the average yeild for rice", "potential yeild for rice", "avg yield rice","average yield rice"],
+         "responses": ["It has the yield potential of 55-60 quintals per hectare.","55 - 60 quintals"]
+        },
+	{"tag": "ragi_yield",
+         "patterns": ["What is the average yeild for ragi", "potential yeild for ragi", "avg yield ragi","average yield ragi"],
+         "responses": ["It has an yield potential of 27-29 q/ha.","27 - 29 quintals"]
+        },
+	{"tag": "jowar_yield",
+         "patterns": ["What is the average yeild for jowar", "potential yeild for jowar", "avg yield jowar","average yield jowar"],
+         "responses": ["It has an yield potential of 25-35 quintals per hectare.","25-35 quintals"]
+        },
+	{"tag": "maize_yield",
+         "patterns": ["What is the average yeild for maize", "potential yeild for maize", "avg yield maize","average yield maize"],
+         "responses": ["It has an yield potential of 22.5-6.6 quintals per hectare.","22.5 - 6.6 quintals"]
+        },
+	{"tag": "pulses_yield",
+         "patterns": ["What is the average yeild for pulses", "potential yeild for pulses", "avg yield pulses","average yield pulses"],
+         "responses": ["The productivity remain less than 800 kg per ha."]
+        },
+	{"tag": "cotton_yield",
+         "patterns": ["What is the average yeild for rice", "potential yeild for rice", "avg yield rice","average yield rice"],
+         "responses": ["The cotton productivity is 250 Kgs per hectare.","250 Kgs per hectare."]
+        },
+	{"tag": "sugarcane_yield",
+         "patterns": ["What is the average yeild for rice", "potential yeild for rice", "avg yield rice","average yield rice"],
+         "responses": ["The average yield of cane stalk is 60–70 tonnes per hectare","60-70 tonnes per hectare"]
+        },
+	{"tag": "wheat_yield",
+         "patterns": ["What is the average yeild for rice", "potential yeild for rice", "avg yield rice","average yield rice"],
+         "responses": ["Yield potential of approximately 1.5 bushels per acre."]
+        },
+	{"tag": "rice_fertiliser",
+         "patterns": ["What is the fertiliser required for rice", "What is the fertilizer required for rice", "fertliser for rice", "fertilizer rice","rice fertiliser"],
+         "responses": ["Apply TNAU Rainfed rice MN mixture 12.5 kg/ha as EFYM at 1:10 ratio incubated for 30 days at friable moisture."]
+        },
+	{"tag": "ragi_fertiliser",
+         "patterns": ["What is the fertiliser required for ragi", "What is the fertilizer required for ragi", "fertliser for ragi", "fertilizer ragi","ragi fertiliser"],
+         "responses": ["50% of recommended nitrogen is to be applied at sowing and the remaining 50% in two equal splits at 25-30 and 40-45 days after sowing."]
+        },
+	{"tag": "jowar_fertiliser",
+         "patterns": ["What is the fertiliser required for jowar", "What is the fertilizer required for jowar", "fertliser for jowar", "fertilizer jowar","jowar fertiliser"],
+         "responses": ["Recommended dose of fertilizer for sweet sorghum in soils with normal fertility levels is 80kg of nitrogen, 60 kg of phosphorous and 40 kg of potassium."]
+        },
+	{"tag": "maize_fertiliser",
+         "patterns": ["What is the fertiliser required for maize", "What is the fertilizer required for maize", "fertliser for maize", "fertilizer maize","maize fertiliser"],
+         "responses": ["Apply TNAU MN mixture 30 kg /ha"]
+        },
+	{"tag": "pulses_fertiliser",
+         "patterns": ["What is the fertiliser required for pulses", "What is the fertilizer required for pulses", "fertliser for pulses", "fertilizer pulses","pulses fertiliser"],
+         "responses": ["Apply fertilizers basally before sowing. Rainfed : 12.5 kg N + 25 kg P2O5 + 12.5 kg K2O +10 kg S*/ha, Irrigated : 25 kg N + 50 kg P2O5 + 25 kg K2O + 20 kg S*/ha"]
+        },
+	{"tag": "cotton_fertiliser",
+         "patterns": ["What is the fertiliser required for cotton", "What is the fertilizer required for cotton", "fertliser for cotton", "fertilizer cotton","cotton fertiliser"],
+         "responses": [" entire NPK at planting ( rain fed cotton ), Half N and entire P & K planting, remaining N at flowering (irrigated cotton ) N in 4 splits in irrigated hybrid cotton."]
+        },
+	{"tag": "sugarcane_fertiliser",
+         "patterns": ["What is the fertiliser required for sugarcane", "What is the fertilizer required for sugarcane", "fertliser for sugarcane", "fertilizer sugarcane","sugarcane fertiliser"],
+         "responses": ["Apply P fertilizer based on soil test values. Otherwise apply super phosphate (375 kg/ha) along the furrows and incorporate with hand hoe."]
+        },
+	{"tag": "wheat_fertiliser",
+         "patterns": ["What is the fertiliser required for wheat", "What is the fertilizer required for wheat", "fertliser for wheat", "fertilizer wheat","wheat fertiliser"],
+         "responses": ["When applying a starter fertilizer for wheat, application methods and rates are much more flexible with phosphorus than nitrogen."]
+        },
+	{"tag": "rice_pesticide",
+         "patterns": ["What is the pesticide required for rice", "pesticide for rice", "pesticide rice","rice pesticide"],
+         "responses": ["Lambda-cyhalothrin, malathion and zeta-cypermethrin are all broad-spectrum pesticides used for rice."]
+        },
+	{"tag": "ragi_pesticide",
+         "patterns": ["What is the pesticide required for ragi", "pesticide for ragi", "pesticide ragi","ragi pesticide"],
+         "responses": ["Any one of the insecticides- monocrotophos 1.6 ml, Chlorpyriphos 2.5 ml or Quinalphos 2.5 ml or Acephate 1 gm or Carbaryl 3 gm or Cartap hydrochloride2 gm/lit to be sprayed two times at 10 days interval or apply cartap hydrochloride 4G 10Kg/acre"]
+        },
+	{"tag": "jowar_pesticide",
+         "patterns": ["What is the pesticide required for jowar", "pesticide for jowar", "pesticide jowar","jowar pesticide"],
+         "responses": ["Shoot fly can be managed by the soil application of Carbofuran 3G at 8 to 10 kg/ha."]
+        },
+	{"tag": "maize_pesticide",
+         "patterns": ["What is the pesticide required for maize", "pesticide for maize", "pesticide maize","maize pesticide"],
+         "responses": ["Fungicides are used as pesticide."]
+        },
+	{"tag": "pulses_pesticide",
+         "patterns": ["What is the pesticide required for pulses", "pesticide for pulses", "pesticide pulses","pulses pesticide"],
+         "responses": ["Foliar spray of NAA 40 mg/litre and Salicylic acid 100 mg/litre once at pre-flowering and another at 15 days thereafter"]
+        },
+	{"tag": "cotton_pesticide",
+         "patterns": ["What is the pesticide required for cotton", "pesticide for cotton", "pesticide cotton","cotton pesticide"],
+         "responses": ["Cotton growers typically use many of the most hazardous pesticides on the market including aldicarb, phorate, methamidophos and endosulfan."]
+        },
+	{"tag": "sugarcane_pesticide",
+         "patterns": ["What is the pesticide required for sugarcane", "pesticide for sugarcane", "pesticide sugarcane","sugarcane pesticide"],
+         "responses": ["The insecticides acetamiprid and cypermethrin were used to manage aphids while four different insecticides controlled thrips."]
+        },
+	{"tag": "wheat_pesticide",
+         "patterns": ["What is the pesticide required for wheat", "pesticide for wheat", "pesticide wheat","wheat pesticide"],
+         "responses": ["Chlorothalonil, General use insecticide"]
+         }]}

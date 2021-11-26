@@ -268,7 +268,7 @@ def img_re(img):
     return img.reshape(1,64, 64, 3)
 
 def predict_pest(img):
-    model = keras.models.load_model('home/Trained_model.h5')
+    model = keras.models.load_model('home/models/Trained_model.h5')
     return model.predict(img)
 
 def pest_pre_result(request):
@@ -323,10 +323,27 @@ def profile(request):
     return render( request, 'home/profile.html', context)
 
 def edit_profile(request):
-
+    context={}
     ustate = " "
     ucity = " "
-    
+    data2=[]
+    # data = pd.read_csv("fertilizer.csv")
+    with open('home/state.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            data2.append(row[0])
+    data2.sort()
+    context['state'] = data2
+
+    data3=[]
+    # data = pd.read_csv("fertilizer.csv")
+    with open('home/district.csv', 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            data3.append(row[0])
+    data3.sort()
+    context['district'] = data3
+
     try:
         address = location.objects.get(user=request.user)
         context = {}
@@ -337,8 +354,8 @@ def edit_profile(request):
         print(address.state)
         ustate = address.state
         ucity = address.city
-        context['state'] = ustate
-        context['city'] = ucity
+        context['ustate'] = ustate
+        context['ucity'] = ucity
         
         return render( request, 'home/edit_profile.html', context)
     
@@ -350,19 +367,83 @@ def edit_profile(request):
         print("FFFFFFFFFF")
         print(context['city'])
         return render( request, 'home/edit_profile.html', context)
-    
-def get_bot_response():
-    # userText = request.args.get('msg')
-    # return str(chatbot.get_response(userText))
-    return 'Hi'
 
 
 def chatbot_index(request):
     return render( request, 'home/chatbot.html')
 
-def chatbot(request):
 
+
+from django.http.response import JsonResponse
+from django.shortcuts import redirect, render
+from django.http import HttpResponse
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
+from tensorflow.python.framework.tensor_conversion_registry import get
+import numpy
+import pickle
+import json
+import random
+import numpy as np
+from django.forms.models import model_to_dict
+
+import nltk
+from nltk.stem import WordNetLemmatizer
+from tensorflow.keras.models import load_model
+from tensorflow.python.keras.saving.saved_model.utils import list_all_layers
+
+def chatbot(request):
     message = request.GET.get('msg')
-    #model(msg)
-    res='hi '+message
-    return HttpResponse(res)  
+    lemmatizer = WordNetLemmatizer()
+
+    intents= json.loads(open('home/models/intents.json').read())
+
+    words = pickle.load(open('home/models/words.pkl','rb'))
+    classes = pickle.load(open('home/models/classes.pkl','rb'))
+    # model = load_model('chatbot_model.model')
+    model = load_model('home/models/chatbotmodel.h5')
+
+    def clean_up_sentence(sentence):
+        sentence_words = nltk.word_tokenize(sentence)
+        sentence_words = [lemmatizer.lemmatize(word) for word in sentence_words]
+        return sentence_words
+
+    def bag_of_words(sentence):
+        sentence_words = clean_up_sentence(sentence)
+        bag = [0]*len(words)
+        for w in sentence_words:
+            for i,word in enumerate(words):
+                if word == w:
+                    bag[i] = 1
+        return np.array(bag)
+
+    def predict_class(sentence):
+        bow = bag_of_words(sentence)
+        res = model.predict(np.array([bow]))[0]
+        ERROR_THRESHOLD = 0.25
+        results = [[i,r] for i,r in enumerate(res) if r > ERROR_THRESHOLD]
+
+        results.sort(key= lambda x: x[1], reverse = True)
+        return_list = []
+        for r in results:
+            return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
+        return return_list
+
+    def get_response(intents_list,intents_json):
+        tag = intents_list[0]['intent']
+        list_of_intents = intents_json['intents']
+        for i in list_of_intents:
+            if i['tag'] == tag:
+                result = random.choice(i['responses'])
+                break
+        return result
+
+    print("GO! Bot is running!")
+
+
+    
+    ints = predict_class(message)
+    res = get_response(ints,intents)
+    print(res)
+    return HttpResponse(res)
