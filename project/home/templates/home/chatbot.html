@@ -32,7 +32,7 @@
     </form>
 
     <form class="msger-speak">
-      <button type="submit" id="speak" class="msger-send-btn">Speak</button>
+      <button type="submit" id="speak" ><i style="color:rgb(189 205 0); font-size: 1.5rem;"  class="fas fa-microphone-alt"></i></button>
     </form>
 
   </section>
@@ -66,10 +66,14 @@
       alert("listening.....");
       event.preventDefault();
       const  msgText=speechResponse();
-      if (!msgText) return;
-      appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
-      console.log(msgText)
-      botResponse(msgText);
+      msgText.then((res) => {
+          if (!res) return;
+          appendMessage(PERSON_NAME, PERSON_IMG, "right", res);
+          console.log(res)
+          botResponse(res);
+        }
+       );
+      
 
     });
 
