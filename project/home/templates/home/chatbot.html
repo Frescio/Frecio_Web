@@ -28,13 +28,108 @@
 
     <form class="msger-inputarea">
       <input type="text" class="msger-input" id="textInput" placeholder="Enter your message...">
-
-      <button type="submit" class="msger-send-btn">SEND</button>
+      <button type="submit" id="text" class="msger-send-btn">SEND</button>
     </form>
+
+    <form class="msger-speak">
+      <button type="submit" id="speak" class="msger-send-btn">Speak</button>
+    </form>
+
   </section>
   <!-- partial -->
   <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
   <script>
+
+    const msgerForm_text = get(".msger-inputarea");
+    const msgerChat = get(".msger-chat");
+    const msgerInput = get(".msger-input");
+    const msgerForm_speak = get(".msger-speak");
+
+    // Icons made by Freepik from www.flaticon.com
+    const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
+    const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
+    const BOT_NAME = "frescio bot";
+    const PERSON_NAME = "You";
+
+    msgerForm_text.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const msgText = msgerInput.value;
+      if (!msgText) return;
+
+      appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+      msgerInput.value = "";
+      botResponse(msgText);
+    });
+
+    msgerForm_speak.addEventListener("submit", event => {
+      alert("listening.....");
+      event.preventDefault();
+      const  msgText=speechResponse();
+      if (!msgText) return;
+      appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+      console.log(msgText)
+      botResponse(msgText);
+
+    });
+
+    function appendMessage(name, img, side, text) {
+      //   Simple solution for small apps
+      const msgHTML = `
+        <div class="msg ${side}-msg">
+          <div class="msg-bubble">
+            <div class="msg-text">${text}</div>
+          </div>
+        </div>
+        `;
+
+      msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+      msgerChat.scrollTop += 500;
+    }
+    async function speechResponse(rawText) {
+
+      let msgText = "Sorry not able to recognaise"
+      // Bot Response
+      await $.get("speech_to_text", { msg: "rawText" }).done(function (data) {
+        console.log(data);
+        console.log("asdfasdf");
+        msgText = data;
+      });
+      console.log(msgText)
+      return msgText;
+
+    }
+    function botResponse(rawText) {
+
+      // Bot Response
+      $.get("chatbot", { msg: rawText }).done(function (data) {
+        console.log(rawText);
+        console.log(data);
+        const msgText = data;
+        appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
+
+      });
+
+    }
+
+
+    // Utils
+    function get(selector, root = document) {
+      return root.querySelector(selector);
+    }
+
+    function formatDate(date) {
+      const h = "0" + date.getHours();
+      const m = "0" + date.getMinutes();
+
+      return `${h.slice(-2)}:${m.slice(-2)}`;
+    }
+
+
+
+  </script>
+
+  {% comment %} <script>
 
     const msgerForm = get(".msger-inputarea");
     const msgerInput = get(".msger-input");
@@ -47,16 +142,7 @@
     const BOT_NAME = "CoronaBot";
     const PERSON_NAME = "You";
 
-    msgerForm.addEventListener("submit", event => {
-      event.preventDefault();
-
-      const msgText = msgerInput.value;
-      if (!msgText) return;
-
-      appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
-      msgerInput.value = "";
-      botResponse(msgText);
-    });
+    
 
     function appendMessage(name, img, side, text) {
       //   Simple solution for small apps
@@ -100,5 +186,5 @@
 
 
 
-  </script>
+  </script> {% endcomment %}
 

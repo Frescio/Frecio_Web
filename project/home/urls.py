@@ -18,5 +18,6 @@ urlpatterns = [
     path('profile', views.profile, name='my_profile'),
     path( 'editprofile', views.edit_profile, name = 'edit_profile'),
     path('chatbot', views.chatbot, name='chatbot'),
+    path('speech_to_text', views.speech_to_text, name='speech_to_text'),
     path('chatbot_index', views.chatbot_index, name='chatbot_index'),
 ]

@@ -393,6 +393,26 @@ from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import load_model
 from tensorflow.python.keras.saving.saved_model.utils import list_all_layers
 
+import speech_recognition as sr
+
+def speech_to_text(request):
+    recognizer = sr.Recognizer()
+    print("lol")
+    with sr.Microphone() as mic:
+        print("listening...")
+        audio = recognizer.listen(mic)
+    try:
+        print("trying1...")
+        text = recognizer.recognize_google(audio)
+        print("trying2...",text)
+        return  HttpResponse(text)
+    except:
+        print("except...")
+        return   HttpResponse("ERROR")
+# print(speech_to_text())
+
+
+
 def chatbot(request):
     message = request.GET.get('msg')
     lemmatizer = WordNetLemmatizer()
