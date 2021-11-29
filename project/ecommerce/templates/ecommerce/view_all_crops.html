@@ -29,7 +29,7 @@
 </div>
 <br><br>
 
-<div class="row12">
+<!-- <div class="row12">
 
   <div class="column12" style="padding-left: 70px; padding-right: 70px; width:30%; ">
     <form method="POST" action="" style=" padding-top: 20px; padding-left: 10px; padding-right: 10px; ">
@@ -214,6 +214,7 @@
     </form>
 
   </div>
+ -->
 
 
 
@@ -221,13 +222,12 @@
 
 
 
-
-  <div class="column12 row" style="width:60%; padding-left: 30px;">
+  <div class="row" style="width:90%; padding-left: 60px;">
     <!-- <div class="row"> -->
     {% for some_crop in all_crops %}
 
     <div class="col-lg-4" id="some_crop-{{ some_crop.id }}"
-      style=" padding-left: 30px;  margin-bottom: 220px; display: block; width: 30%; max-width:30%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
+      style=" padding-left: 30px;  margin-bottom: 220px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
       <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.photo.url }}">
       <div class="box-element product">
         <h6><strong>{{some_crop.crop_name}}</strong></h6>
@@ -271,7 +271,7 @@
     {% for some_crop in wished_crop %}
 
     <div class="col-lg-4" id="some_crop-{{ some_crop.id }}"
-    style=" padding-left: 30px;  margin-bottom: 220px; display: block; width: 30%; max-width:30%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
+    style=" padding-left: 30px;  margin-bottom: 220px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
       <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.crop.photo.url }}">
       <div class="box-element product">
         <h6><strong>{{some_crop.crop.crop_name}}</strong></h6>
@@ -309,7 +309,7 @@
   </div>
 
   <!-- </div> -->
-</div>
+
 
 <br><br><br><br>
 {% endblock body %}
