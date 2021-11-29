@@ -297,10 +297,158 @@ def pest_pre_result(request):
 
         return render( request, 'home/pest_prediction_result.html',context)
     return render( request, 'home/pest_pred_tem.html')
+    
+import torch
+import torch.nn as nn           # for creating  neural networks
+from torch.utils.data import DataLoader # for dataloaders 
+from PIL import Image           # for checking images
+import torch.nn.functional as F 
+
+
+def get_default_device():
+    """Pick GPU if available, else CPU"""
+    if torch.cuda.is_available:
+        return torch.device("cuda")
+    else:
+        return torch.device("cpu")
+
+device = get_default_device()
+def to_device(data, device):
+    """Move tensor(s) to chosen device"""
+    if isinstance(data, (list,tuple)):
+        return [to_device(x, device) for x in data]
+    return data.to(device, non_blocking=True)
+# def predict_image(img, model):
+#     """Converts image to array and return the predicted class
+#         with highest probability"""
+#     # Convert to a batch of 1
+#     xb = to_device(img.unsqueeze(0), device)
+#     # Get predictions from model
+#     yb = model(xb)
+#     # Pick index with highest probability
+#     _, preds  = torch.max(yb, dim=1)
+#     # Retrieve the class label
+
+#     return train.classes[preds[0].item()]     
+
+
+def ConvBlock(in_channels, out_channels, pool=False):
+    layers = [nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1),
+             nn.BatchNorm2d(out_channels),
+             nn.ReLU(inplace=True)]
+    if pool:
+        layers.append(nn.MaxPool2d(4))
+    return nn.Sequential(*layers)
+
+
+
+
+
+
+
+
+
+# for calculating the accuracy
+def accuracy(outputs, labels):
+    _, preds = torch.max(outputs, dim=1)
+    return torch.tensor(torch.sum(preds == labels).item() / len(preds))
+
+
+# base class for the model
+class ImageClassificationBase(nn.Module):
+    
+    def training_step(self, batch):
+        images, labels = batch
+        out = self(images)                  # Generate predictions
+        loss = F.cross_entropy(out, labels) # Calculate loss
+        return loss
+    
+    def validation_step(self, batch):
+        images, labels = batch
+        out = self(images)                   # Generate prediction
+        loss = F.cross_entropy(out, labels)  # Calculate loss
+        acc = accuracy(out, labels)          # Calculate accuracy
+        return {"val_loss": loss.detach(), "val_accuracy": acc}
+    
+    def validation_epoch_end(self, outputs):
+        batch_losses = [x["val_loss"] for x in outputs]
+        batch_accuracy = [x["val_accuracy"] for x in outputs]
+        epoch_loss = torch.stack(batch_losses).mean()       # Combine loss  
+        epoch_accuracy = torch.stack(batch_accuracy).mean()
+        return {"val_loss": epoch_loss, "val_accuracy": epoch_accuracy} # Combine accuracies
+    
+    def epoch_end(self, epoch, result):
+        print("Epoch [{}], last_lr: {:.5f}, train_loss: {:.4f}, val_loss: {:.4f}, val_acc: {:.4f}".format(
+            epoch, result['lrs'][-1], result['train_loss'], result['val_loss'], result['val_accuracy']))
+# resnet architecture 
+class ResNet9(ImageClassificationBase):
+    def __init__(self, in_channels, num_diseases):
+        super().__init__()
+        
+        self.conv1 = ConvBlock(in_channels, 64)
+        self.conv2 = ConvBlock(64, 128, pool=True) # out_dim : 128 x 64 x 64 
+        self.res1 = nn.Sequential(ConvBlock(128, 128), ConvBlock(128, 128))
+        
+        self.conv3 = ConvBlock(128, 256, pool=True) # out_dim : 256 x 16 x 16
+        self.conv4 = ConvBlock(256, 512, pool=True) # out_dim : 512 x 4 x 44
+        self.res2 = nn.Sequential(ConvBlock(512, 512), ConvBlock(512, 512))
+        
+        self.classifier = nn.Sequential(nn.MaxPool2d(4),
+                                       nn.Flatten(),
+                                       nn.Linear(512, num_diseases))
+        
+    def forward(self, xb): # xb is the loaded batch
+        out = self.conv1(xb)
+        out = self.conv2(out)
+        out = self.res1(out) + out
+        out = self.conv3(out)
+        out = self.conv4(out)
+        out = self.res2(out) + out
+        out = self.classifier(out)
+        return out        
+
+from PIL import Image
+from torchvision.transforms import ToTensor
+
+dis_class=['Tomato___Late_blight', 'Tomato___healthy', 'Grape___healthy', 'Orange___Haunglongbing_(Citrus_greening)', 'Soybean___healthy', 'Squash___Powdery_mildew', 'Potato___healthy', 'Corn_(maize)___Northern_Leaf_Blight', 'Tomato___Early_blight', 'Tomato___Septoria_leaf_spot', 'Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot', 'Strawberry___Leaf_scorch', 'Peach___healthy', 'Apple___Apple_scab', 'Tomato___Tomato_Yellow_Leaf_Curl_Virus', 'Tomato___Bacterial_spot', 'Apple___Black_rot', 'Blueberry___healthy', 'Cherry_(including_sour)___Powdery_mildew', 'Peach___Bacterial_spot', 'Apple___Cedar_apple_rust', 'Tomato___Target_Spot', 'Pepper,_bell___healthy', 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)', 'Potato___Late_blight', 'Tomato___Tomato_mosaic_virus', 'Strawberry___healthy', 'Apple___healthy', 'Grape___Black_rot', 'Potato___Early_blight', 'Cherry_(including_sour)___healthy', 'Corn_(maize)___Common_rust_', 'Grape___Esca_(Black_Measles)', 'Raspberry___healthy', 'Tomato___Leaf_Mold', 'Tomato___Spider_mites Two-spotted_spider_mite', 'Pepper,_bell___Bacterial_spot', 'Corn_(maize)___healthy']
+
+
+def disease_result(request):
+    context = {}
+    print("zzzzzzzzzz")
+    if request.POST.get('submit') == "predict_disease":
+        
+        fileObj = request.FILES['dis_photo']
+        # fileObj=request.FILES['filePath']
+        fs=FileSystemStorage()
+        filePathName=fs.save(fileObj.name,fileObj)
+        filePathName=fs.url(filePathName)
+        testimage='.'+filePathName
+        img = image.load_img(testimage)
+
+        model_disease=ResNet9(3,38)
+        model_disease.load_state_dict(torch.load("home/models/plant-disease-model.pb",map_location=torch.device('cpu')))
+        model_disease.eval()
+        # model_disease=torch.load("home/models/plant-disease-model-complete.pth")
+        # model_disease.eval()
+        # Convert to a batch of 1
+        xb=ToTensor()(img).unsqueeze(0) 
+
+        # xb = to_device(img.unsqueeze(0), device)
+        # Get predictions from model
+        yb = model_disease(xb)
+        _, preds  = torch.max(yb, dim=1)
+        # Retrieve the class label
+
+        res=dis_class[preds[0].item()]
+        print("xxxxxxxxxxxxxxxxx   ",res)
+        context['result'] = res
+    return render( request, 'home/disease_result.html',context)
 
 
 def disease_pred(request):
     return render( request, 'home/disease_predict.html')
+
 
 def profile(request):
     if request.POST:
@@ -393,6 +541,26 @@ from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import load_model
 from tensorflow.python.keras.saving.saved_model.utils import list_all_layers
 
+import speech_recognition as sr
+
+def speech_to_text(request):
+    recognizer = sr.Recognizer()
+    print("lol")
+    with sr.Microphone() as mic:
+        print("listening...")
+        audio = recognizer.listen(mic)
+    try:
+        print("trying1...")
+        text = recognizer.recognize_google(audio)
+        print("trying2...",text)
+        return  HttpResponse(text)
+    except:
+        print("except...")
+        return   HttpResponse("ERROR")
+# print(speech_to_text())
+
+
+
 def chatbot(request):
     message = request.GET.get('msg')
     lemmatizer = WordNetLemmatizer()
@@ -431,7 +599,10 @@ def chatbot(request):
         return return_list
 
     def get_response(intents_list,intents_json):
-        tag = intents_list[0]['intent']
+        try:
+            tag = intents_list[0]['intent']
+        except:
+            return "Sorry I can't understand" 
         list_of_intents = intents_json['intents']
         for i in list_of_intents:
             if i['tag'] == tag:

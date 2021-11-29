@@ -1,0 +1,39 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+
+<style>
+    div.card3 {
+        width: 250px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    div.container3 {
+        padding: 10px;
+    }
+</style>
+
+
+<div class="card3" style="width: 80%; margin: auto; margin-top: 20px; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
+    <div class="container3">
+
+        <h4><b>Our Model predicted: {{result}}</b></h4>
+<!--
+        To get rid of apple scab, consider the following suggestions: <br>
+
+        1. Remove and destroy the fallen leaf litter so that the fungus cannot overwinter. This may reduce the disease pressure in the following spring, but will not likely eliminate the disease.
+        <br>
+
+        2. Do not overcrowd plants, and make sure the canopy has proper airflow. This will decrease the conditions favorable for disease development.
+
+        <br>
+        
+        3. Fungicide applications at 2-week intervals beginning when new growth is expanding in the spring.
+        <br>
+        4. Crabapple cultivars that are resistant to apple scab are widely available.
+        
+-->
+    </div>
+</div>
+<br>
+{% endblock %}
