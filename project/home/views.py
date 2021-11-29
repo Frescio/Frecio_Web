@@ -302,6 +302,9 @@ def pest_pre_result(request):
 def disease_pred(request):
     return render( request, 'home/disease_predict.html')
 
+def dis_res(request):
+    return render( request, 'home/disease_result.html')
+
 def profile(request):
     if request.POST:
         first = request.POST['first']
@@ -451,7 +454,12 @@ def chatbot(request):
         return return_list
 
     def get_response(intents_list,intents_json):
-        tag = intents_list[0]['intent']
+        # tag = intents_list[0]['intent']
+        try:
+            tag = intents_list[0]['intent']
+        except:
+            return "Sorry I can't understand" 
+
         list_of_intents = intents_json['intents']
         for i in list_of_intents:
             if i['tag'] == tag:

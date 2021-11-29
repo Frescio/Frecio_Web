@@ -9,6 +9,7 @@ urlpatterns = [
     path( 'pest_result', views.pest_pre_result, name='pest_res'),
     path( 'fertilizer', views.fertilizer, name='fert_pred'),
     path( 'fert_result', views.fertpred, name='fert_res'),
+    path( 'dis_res', views.dis_res, name="dis_res" ),
     # path('register', views.register, name='register')
     # path('register', views.register, name='register')
     # path('register', include('accounts.urls')),
