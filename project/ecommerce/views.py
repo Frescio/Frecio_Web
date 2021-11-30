@@ -41,8 +41,8 @@ def mycrops(request):
                         crop_name = request.POST['crop_name']
                         price = request.POST['price']
                         quantity = request.POST['quantity']
-                        photo = request.FILES['photo']
-                        crop.objects.filter(id=request.POST.get('crop_id')).update(crop_name=crop_name,price=price,quantity=quantity,photo=photo)
+                        # photo = request.FILES['photo']
+                        crop.objects.filter(id=request.POST.get('crop_id')).update(crop_name=crop_name,price=price,quantity=quantity)
                         
                         # return 
                 context = {}

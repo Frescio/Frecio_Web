@@ -3,6 +3,8 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db.models.deletion import CASCADE
 from django.db.models.fields.related import ManyToManyField
 from slugify import slugify
+from phonenumber_field.modelfields import PhoneNumberField
+from django.core.validators import RegexValidator
 # Create your models here.
 # from mongoengine import Document,fields
 
@@ -43,7 +45,10 @@ class MyUserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     username = None
-    phone = models.CharField(max_length=20,unique=True, primary_key=True)
+    # phone = models.CharField(max_length=20,unique=True, primary_key=True)
+    # phone = PhoneNumberField(null=False, blank=False, unique=True, primary_key=True)
+    phone_regex = RegexValidator(regex=r'^\+91\d{10}$', message="Enter a valid 10 digit number with country code(+91).")
+    phone = models.CharField(validators=[phone_regex], max_length=17, null=False, blank=False, unique=True, primary_key=True) 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     # location = models.CharField(max_length=200)

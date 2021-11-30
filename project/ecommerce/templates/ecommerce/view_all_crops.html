@@ -29,7 +29,7 @@
 </div>
 <br><br>
 
-<div class="row12">
+<!-- <div class="row12">
 
   <div class="column12" style="padding-left: 70px; padding-right: 70px; width:30%; ">
     <form method="POST" action="" style=" padding-top: 20px; padding-left: 10px; padding-right: 10px; ">
@@ -214,6 +214,7 @@
     </form>
 
   </div>
+ -->
 
 
 
@@ -221,17 +222,18 @@
 
 
 
-
-  <div class="column12 row" style="width:60%; padding-left: 30px;">
+  <div class="row" style="padding-left: 70px; padding-right: 70px">
     <!-- <div class="row"> -->
     {% for some_crop in all_crops %}
 
     <div class="col-lg-4" id="some_crop-{{ some_crop.id }}"
-      style=" padding-left: 30px;  margin-bottom: 220px; display: block; width: 30%; max-width:30%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
+      style=" padding-left: 25px; padding-right: 25px; margin-bottom: 200px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
       <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.photo.url }}">
       <div class="box-element product">
         <h6><strong>{{some_crop.crop_name}}</strong></h6>
         <h6>Farmer Name: {{some_crop.user.first_name}} {{some_crop.user.last_name}}</h6>
+        <h6>{{some_crop.user.location_set.all.0.city}}, {{some_crop.user.location_set.all.0.state}}</h6>
+        <h6>Available quantity: {{some_crop.quantity}} quintals</h6>
 
         <!-- <h6>Phone no: {{some_crop.user.phone}}</h6> -->
         <!-- <h6>Phone no: {{some_crop.user.phone}}</h6> -->
@@ -251,13 +253,13 @@
           </form>
         </div>
 
-        <form action="" method="post">
-          {% csrf_token %}
-          <input type="hidden" name="name" value="wishlist">
-          <input type="hidden" value={{some_crop.id}} name='crop_id'>
-          <button class="btn btn-outline-secondary add-btn" type="submit">Add to Wishlist</button>
-        </form>
-
+        <!-- <form action="" method="post"> -->
+          <!-- {% csrf_token %} -->
+          <!-- <input type="hidden" name="name" value="wishlist"> -->
+          <!-- <input type="hidden" value={{some_crop.id}} name='crop_id'> -->
+          <button class="btn btn-outline-secondary add-btn" >Add to Wishlist</button>
+        <!-- </form> -->
+          <br>
         <h4 style="display: inline-block; float: right"><strong>Rs. {{some_crop.price}}</strong></h4>
 
         <hr>
@@ -270,11 +272,13 @@
     {% for some_crop in wished_crop %}
 
     <div class="col-lg-4" id="some_crop-{{ some_crop.id }}"
-    style=" padding-left: 30px;  margin-bottom: 220px; display: block; width: 30%; max-width:30%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
+    style=" padding-left: 25px; padding-right: 25px; margin-bottom: 200px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
       <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.crop.photo.url }}">
       <div class="box-element product">
         <h6><strong>{{some_crop.crop.crop_name}}</strong></h6>
         <h6>Farmer Name: {{some_crop.crop.user.first_name}} {{some_crop.crop.user.last_name}}</h6>
+        <h6>{{some_crop.crop.user.location_set.all.0.city}}, {{some_crop.crop.user.location_set.all.0.state}}</h6>        
+        <h6>Available quantiy: {{some_crop.crop.quantity}} quintals</h6>
         <!-- <h6>Phone no: {{some_crop.user.phone}}</h6> -->
         <!-- <h6>Phone no: {{some_crop.user.phone}}</h6> -->
         <!-- <h6>Location: {{some_crop.user.location}}</h6> -->
@@ -308,7 +312,7 @@
   </div>
 
   <!-- </div> -->
-</div>
+
 
 <br><br><br><br>
 {% endblock body %}
