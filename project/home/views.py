@@ -136,26 +136,32 @@ pest_dic = {
 }
 
 def home(request):
-    
-    url = f'https://newsapi.org/v2/everything?q=kharif + crop&from=2021-10-29&sortBy=publishedAt&apiKey={API_KEY}'
+
+    url = f'https://newsapi.org/v2/everything?q=kharif + crop&from=2021-10-30&sortBy=publishedAt&apiKey={API_KEY}'
     response = requests.get(url)
     data = response.json()
-    articles = data['articles']
-        
-    def smart_truncate(content, length=55, suffix='...'):
-        if len(content) <= length:
-            return content
-        else:
-            return ' '.join(content[:length+1].split(' ')[0:-1]) + suffix
+    context = {}
+    articles = []
+    try:
+        articles = data['articles']
 
-    for x in range(4):
-         string=articles[x]['title']
-         string=smart_truncate(string)
-         articles[x]['title']=string
+        def smart_truncate(content, length=55, suffix='...'):
+            if len(content) <= length:
+                return content
+            else:
+                return ' '.join(content[:length+1].split(' ')[0:-1]) + suffix
 
-    context = {
-        'articles0' : articles[0], 'articles1' : articles[1],'articles2' : articles[2],'articles3' : articles[3]
-    }
+        for x in range(4):
+            string=articles[x]['title']
+            string=smart_truncate(string)
+            articles[x]['title']=string
+
+        context = {
+            'articles0' : articles[0], 'articles1' : articles[1],'articles2' : articles[2],'articles3' : articles[3]
+        }
+    except:
+        # articles = []
+        context = {}
     return render( request, 'home/homepage.html', context )
     #return render( request, 'home/homepage.html' )
     # return render(request, 'home/base.html' )
@@ -455,7 +461,7 @@ def profile(request):
         first = request.POST['first']
         last = request.POST['last']
         ustate = request.POST['state']
-        ucity = request.POST['city']
+        ucity = request.POST['district']
         # User.objects.filter(user=request.user).update(first_name=first, last_name=last)
         try:
             address = location.objects.get(user=request.user)
@@ -479,7 +485,9 @@ def edit_profile(request):
     with open('home/state.csv', 'r') as f:
         reader = csv.reader(f)
         for row in reader:
-            data2.append(row[0])
+            if row[0]!="All":
+                data2.append(row[0])
+            
     data2.sort()
     context['state'] = data2
 
@@ -494,7 +502,6 @@ def edit_profile(request):
 
     try:
         address = location.objects.get(user=request.user)
-        context = {}
         
         print("bbbbb")
         print(address)
@@ -503,17 +510,16 @@ def edit_profile(request):
         ustate = address.state
         ucity = address.city
         context['ustate'] = ustate
-        context['ucity'] = ucity
-        
+        context['ucity'] = ucity    
         return render( request, 'home/edit_profile.html', context)
     
     except:
-        context = {}
-        context['state'] = "NA"
-        context['city'] = "NA"
+    
+        context['ustate'] = "NA"
+        context['ucity'] = "NA"
         print(context['state'])
         print("FFFFFFFFFF")
-        print(context['city'])
+        # print(context['city'])
         return render( request, 'home/edit_profile.html', context)
 
 

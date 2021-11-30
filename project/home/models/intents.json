@@ -242,15 +242,15 @@
         },
 	{"tag": "ragi_fertiliser",
          "patterns": ["What is the fertiliser required for ragi", "What is the fertilizer required for ragi", "fertliser for ragi", "fertilizer ragi","ragi fertiliser"],
-         "responses": ["50% of recommended nitrogen is to be applied at sowing and the remaining 50% in two equal splits at 25-30 and 40-45 days after sowing."]
+         "responses": ["50% of recommended nitrogen is to be applied at sowing and the remaining 50% in two equal splits at 25-30 and 40-45 days after sowing.	"]
         },
 	{"tag": "jowar_fertiliser",
          "patterns": ["What is the fertiliser required for jowar", "What is the fertilizer required for jowar", "fertliser for jowar", "fertilizer jowar","jowar fertiliser"],
-         "responses": ["Recommended dose of fertilizer for sweet sorghum in soils with normal fertility levels is 80kg of nitrogen, 60 kg of phosphorous and 40 kg of potassium."]
+         "responses": ["Recommended dose of fertilizer for sweet sorghum in soils with normal fertility levels is 80kg of nitrogen, 60 kg of phosphorous and 40 kg of potassium.	"]
         },
 	{"tag": "maize_fertiliser",
          "patterns": ["What is the fertiliser required for maize", "What is the fertilizer required for maize", "fertliser for maize", "fertilizer maize","maize fertiliser"],
-         "responses": ["Apply TNAU MN mixture 30 kg /ha"]
+         "responses": ["Apply TNAU MN mixture 30 kg /ha	"]
         },
 	{"tag": "pulses_fertiliser",
          "patterns": ["What is the fertiliser required for pulses", "What is the fertilizer required for pulses", "fertliser for pulses", "fertilizer pulses","pulses fertiliser"],
@@ -286,7 +286,7 @@
         },
 	{"tag": "pulses_pesticide",
          "patterns": ["What is the pesticide required for pulses", "pesticide for pulses", "pesticide pulses","pulses pesticide"],
-         "responses": ["Foliar spray of NAA 40 mg/litre and Salicylic acid 100 mg/litre once at pre-flowering and another at 15 days thereafter"]
+         "responses": ["Foliar spray of NAA 40 mg/litre and Salicylic acid 100 mg/litre once at pre-flowering and another at 15 days thereafter	"]
         },
 	{"tag": "cotton_pesticide",
          "patterns": ["What is the pesticide required for cotton", "pesticide for cotton", "pesticide cotton","cotton pesticide"],
@@ -298,5 +298,45 @@
         },
 	{"tag": "wheat_pesticide",
          "patterns": ["What is the pesticide required for wheat", "pesticide for wheat", "pesticide wheat","wheat pesticide"],
-         "responses": ["Chlorothalonil, General use insecticide"]
-         }]}
+         "responses": ["Chlorothalonil, General use insecticide	"]
+        },
+	{"tag": "harvesting",
+         "patterns": ["What is harvesting", "harvesting"],
+         "responses": ["Harvesting is the process of gathering a ripe crop from the fields. Reaping is the cutting of grain or pulse for harvest, typically using a scythe, sickle, or reaper. On smaller farms with minimal mechanization, harvesting is the most labor-intensive activity of the growing season. ","Harvesting is the operation of gathering the useful part or parts of the plant and is carried out at the time when all the nutrients have developed and the edible parts have reached the appropriate degree of maturity.
+In general, the harvest takes place 10 or 15 days after the grain has reached physiological maturity. At the time of maturity, the grain has specific moisture content and special physical characteristics. The most appropriate time of harvest is determined based upon the length of the growing cycles (which differ according to the crop and varieties) and also the degree of maturity of the grain."]
+        },
+	{"tag": "irrigation",
+         "patterns": ["What is irrigation", "irrigation"],
+         "responses": ["Irrigation is the agricultural process of applying controlled amounts of water to land to assist in the production of crops, as well as to grow landscape plants and lawns, where it may be known as watering. Agriculture that does not use irrigation but instead relies only on direct rainfall is referred to as rain-fed.","Irrigation is the process of applying water to the crops artificially to fulfil their water requirements. Nutrients may also be provided to the crops through irrigation. The various sources of water for irrigation are wells, ponds, lakes, canals, tube-wells and even dams. Irrigation offers moisture required for growth and development, germination and other related functions."]
+        },
+	{"tag": "Types_irrigation",
+         "patterns": ["types of irrigation","Irrigation types"],
+         "responses": ["There are different types of irrigation practised for improving crop yield. These types of irrigation systems are practised based on the different types of soils, climates, crops and resources. The main types of irrigation followed by farmers include:
+
+Surface Irrigation
+In this system, no irrigation pump is involved. Here, water is distributed across the land by gravity.
+
+Localized Irrigation
+In this system, water is applied to each plant through a network of pipes under low pressure.
+
+Sprinkler Irrigation
+Water is distributed from a central location by overhead high-pressure sprinklers or from sprinklers from the moving platform.
+
+Drip Irrigation
+In this type, drops of water are delivered near the roots of the plants. This type of irrigation is rarely used as it requires more maintenance.
+
+Centre Pivot Irrigation
+In this, the water is distributed by a sprinkler system moving in a circular pattern.
+
+Sub Irrigation
+Water is distributed through a system of pumping stations gates, ditches and canals by raising the water table.
+
+Manual Irrigation
+This a labour intensive and time-consuming system of irrigation. Here, the water is distributed through watering cans by manual labour."]
+        },
+	{"tag": "organic_agriculture",
+         "patterns": ["What is organic agriculture", "organic agriculture"],
+         "responses": ["Organic agriculture is a holistic production management system which promotes and enhances agro-ecosystem health, including biodiversity, biological cycles, and soil biological activity. It emphasises the use of management practices in preference to the use of off-farm inputs, taking into account that regional conditions require locally adapted systems. This is accomplished by using, where possible, agronomic, biological, and mechanical methods, as opposed to using synthetic materials, to fulfil any specific function within the system"]
+        }	
+   ]
+}

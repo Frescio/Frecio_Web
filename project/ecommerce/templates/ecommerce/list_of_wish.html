@@ -19,8 +19,11 @@
           <div class="box-element product">
             <h6><strong>{{some_crop.crop.crop_name}}</strong></h6>
             <h6>Farmer name: {{some_crop.user.first_name}} {{some_crop.user.last_name}}</h6>
-            <h6>Phone no: {{some_crop.user.phone}}</h6>
+            
+            <!-- <h6>Phone no: {{some_crop.user.phone}}</h6> -->
+            <h6>{{some_crop.user.location_set.all.0.city}}, {{some_crop.user.location_set.all.0.state}}</h6>
             <!-- <h6>Location: {{some_crop.user.location}}</h6> -->
+            <h6>Available quantiy: {{some_crop.crop.quantity}} quintals</h6>
             <hr>
             <div style="margin-bottom: 5px;">
               <form action="{% url 'farmer_profile' %}" method="post">
