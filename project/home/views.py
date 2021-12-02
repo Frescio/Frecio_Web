@@ -18,7 +18,7 @@ from django.core.files.storage import FileSystemStorage
 
 img_height, img_width=64,64
 # Create your views here.
-API_KEY = 'd0b69496c18e463f888a273cb521ea9f'
+API_KEY = 'ca2fddc268564e208b6f7596225531d2'
 
 pest_dic = {
         'aphids': 
@@ -137,7 +137,7 @@ pest_dic = {
 
 def home(request):
 
-    url = f'https://newsapi.org/v2/everything?q=kharif + crop&from=2021-11-05&sortBy=publishedAt&apiKey={API_KEY}'
+    url = f'https://newsapi.org/v2/everything?q=kharif + crop&from=2021-11-10&sortBy=publishedAt&apiKey={API_KEY}'
     response = requests.get(url)
     data = response.json()
     context = {}
@@ -571,7 +571,7 @@ def chatbot(request):
     message = request.GET.get('msg')
     lemmatizer = WordNetLemmatizer()
 
-    intents= json.loads(open('home/models/intents.json').read())
+    intents= json.loads(open('home/models/intents.json').read(), strict=False)
 
     words = pickle.load(open('home/models/words.pkl','rb'))
     classes = pickle.load(open('home/models/classes.pkl','rb'))
