@@ -29,7 +29,7 @@
 </div>
 <br><br>
 
-<!-- <div class="row12">
+<div class="row12">
 
   <div class="column12" style="padding-left: 70px; padding-right: 70px; width:30%; ">
     <form method="POST" action="" style=" padding-top: 20px; padding-left: 10px; padding-right: 10px; ">
@@ -45,7 +45,7 @@
           integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 
         <label for="commodity" style="font-size: 17px"><b>commodity</b></label>
-        <select id="select-state" name="commodity" class="form-control" id="commodity" placeholder="Select a commodity"
+        <select id="select_commodity" onChange="myFilter(0);" name="commodity" class="form-control" id="commodity" placeholder="Select a commodity"
           style="font-weight: bold" required>
           <option></option>
           {% for opt in commodity %}
@@ -67,8 +67,8 @@
           integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 
         <label for="state" style="font-size: 17px"><b>state</b></label>
-        <select name="state" class="form-control" id="state" placeholder="Select state"
-          onchange="populate(this.id,'district')" style="font-weight: bold" required>
+        <select name="state" onChange="populate(this.id,'district')" class="form-control" id="state" placeholder="Select state"
+           style="font-weight: bold" required>
           <option></option>
           {% for opt in state %}
           <option>{{opt}}</option>
@@ -91,7 +91,7 @@
           integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 
         <label for="district" style="font-size: 17px"><b>district</b></label>
-        <select name="district" class="form-control" id="district" placeholder="Select district"
+        <select name="district" onChange="myFilter(2);" class="form-control" id="district" placeholder="Select district"
           style="font-weight: bold" required>
         </select>
       </div>
@@ -99,6 +99,7 @@
 
       <script>
         function populate(s1, s2) {
+          
           var s1 = document.getElementById(s1);
           var s2 = document.getElementById(s2);
           s2.innerHTML = "";
@@ -202,19 +203,14 @@
             newOption.innerHTML = pair[1];
             s2.options.add(newOption);
           }
+          myFilter(1);
         }
-
+        
       </script>
-
-
-      <div class="d-flex justify-content-center">
-        <button type="submit" class="btn1">Submit</button>
-      </div>
 
     </form>
 
   </div>
- -->
 
 
 
@@ -222,12 +218,17 @@
 
 
 
-  <div class="row" style="padding-left: 70px; padding-right: 70px">
+
+
+  <ul id="myUL" class="column12 row" style="width:60%; padding-left: 30px;list-style-type: none;">
     <!-- <div class="row"> -->
     {% for some_crop in all_crops %}
 
-    <div class="col-lg-4" id="some_crop-{{ some_crop.id }}"
-      style=" padding-left: 25px; padding-right: 25px; margin-bottom: 200px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
+    <li class="col-lg-4" id="some_crop-{{ some_crop.id }}"
+      style=" padding-left: 30px;  margin-bottom: 220px; display: block; width: 30%; max-width:30%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
+      <a hidden>{{some_crop.crop_name}}</a>
+      <a hidden> {{some_crop.user.location_set.all.0.state}}</a>
+      <a hidden>{{some_crop.user.location_set.all.0.city}}</a>
       <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.photo.url }}">
       <div class="box-element product">
         <h6><strong>{{some_crop.crop_name}}</strong></h6>
@@ -264,7 +265,7 @@
 
         <hr>
       </div>
-    </div>
+    </li>
 
 
     {% endfor %}
@@ -309,9 +310,43 @@
 
     {% endfor %}
 
-  </div>
+  </ul>
 
-  <!-- </div> -->
+</div>
+
+
+<script>
+  function myFilter(inx) {
+    var input, filter, ul, li, a, i, txtValue;
+    var input_crop = document.getElementById("select_commodity");
+    var input_state = document.getElementById("state");
+    var input_dis = document.getElementById("district");
+    console.log(inx)
+    if(inx==0){
+      filter = input_crop.value.toUpperCase();
+    }
+    else if(inx==1){
+      filter = input_state.value.toUpperCase();
+    }
+    else{
+      filter = input_dis.value.toUpperCase();
+    }
+    console.log(filter)
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[inx];
+        
+        txtValue = a.textContent || a.innerText;
+        console.log(txtValue);
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
 
 
 <br><br><br><br>

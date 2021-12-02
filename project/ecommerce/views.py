@@ -102,7 +102,8 @@ def viewcrops(request):
         with open('home/commodity.csv', 'r') as f:
             reader = csv.reader(f)
             for row in reader:
-                data1.append(row[0])
+                if row[0] != "All":
+                    data1.append(row[0])
         data1.sort()
         # context['commodity'] = data1
         data2=[]

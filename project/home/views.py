@@ -137,7 +137,7 @@ pest_dic = {
 
 def home(request):
 
-    url = f'https://newsapi.org/v2/everything?q=kharif + crop&from=2021-10-30&sortBy=publishedAt&apiKey={API_KEY}'
+    url = f'https://newsapi.org/v2/everything?q=kharif + crop&from=2021-11-05&sortBy=publishedAt&apiKey={API_KEY}'
     response = requests.get(url)
     data = response.json()
     context = {}

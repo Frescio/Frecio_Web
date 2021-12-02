@@ -1,9 +1,7 @@
 {% load static %}
 
-{% comment %} <head> {% endcomment %}
   <link rel="stylesheet" href="{% static 'home/styles/style.css'%}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-{% comment %} </head> {% endcomment %}
 
 
 
@@ -131,66 +129,4 @@
       return `${h.slice(-2)}:${m.slice(-2)}`;
     }
 
-
-
   </script>
-
-  {% comment %} <script>
-
-    const msgerForm = get(".msger-inputarea");
-    const msgerInput = get(".msger-input");
-    const msgerChat = get(".msger-chat");
-
-
-    // Icons made by Freepik from www.flaticon.com
-    const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
-    const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
-    const BOT_NAME = "CoronaBot";
-    const PERSON_NAME = "You";
-
-    
-
-    function appendMessage(name, img, side, text) {
-      //   Simple solution for small apps
-      const msgHTML = `
-        <div class="msg ${side}-msg">
-          <div class="msg-bubble">
-            <div class="msg-text">${text}</div>
-          </div>
-        </div>
-        `;
-
-      msgerChat.insertAdjacentHTML("beforeend", msgHTML);
-      msgerChat.scrollTop += 500;
-    }
-
-    function botResponse(rawText) {
-
-      // Bot Response
-      $.get("chatbot", { msg: rawText }).done(function (data) {
-        console.log(rawText);
-        console.log(data);
-        const msgText = data;
-        appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
-
-      });
-
-    }
-
-
-    // Utils
-    function get(selector, root = document) {
-      return root.querySelector(selector);
-    }
-
-    function formatDate(date) {
-      const h = "0" + date.getHours();
-      const m = "0" + date.getMinutes();
-
-      return `${h.slice(-2)}:${m.slice(-2)}`;
-    }
-
-
-
-  </script> {% endcomment %}
-

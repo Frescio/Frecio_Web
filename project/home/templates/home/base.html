@@ -486,18 +486,18 @@ input[type="file"]{
 
             </button>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-                <script>
-                $('#submitButt').click(function() {
-                    $(this).toggleClass('active');
-                });
-                $(function() {
-                    $("#test").focus();
-                });
-                
-                function myFunction() {
+        <script>
+            $('#submitButt').click(function() {
+                $(this).toggleClass('active');
+            });
+            $(function() {
+                $("#test").focus();
+            });
+            
+            function myFunction() {
                 var x = document.getElementById("myDIV");
-            console.log(x);
-            console.log(x.classList.contains('open'));
+                console.log(x);
+                console.log(x.classList.contains('open'));
                 if (x.classList.contains('open')) {
                     x.classList.remove("open");
                 } else {
@@ -505,7 +505,7 @@ input[type="file"]{
                     document.getElementById("test").focus();
 
                 }
-                }
+            }
         </script>
 
         <script src="{% static 'home/js/SmoothScroll.min.js' %}"></script>

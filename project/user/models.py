@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db.models.deletion import CASCADE
 from django.db.models.fields.related import ManyToManyField
 from slugify import slugify
-from phonenumber_field.modelfields import PhoneNumberField
+# from phonenumber_field.modelfields import PhoneNumberField
 from django.core.validators import RegexValidator
 # Create your models here.
 # from mongoengine import Document,fields
