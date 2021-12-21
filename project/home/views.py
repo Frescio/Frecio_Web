@@ -135,6 +135,280 @@ pest_dic = {
 
 }
 
+
+dis_dic = {
+        'Apple__Apple_scab': 
+
+['To get rid of Apple Scab, consider the following suggestions: ',
+
+'1. Using a fungicide to treat apple scab may be necessary.',
+'2. some of the best apple scab fungicide options include Bonide Captan, summer lime sulfur, Spectracide Immunox and wettable sulfur. All these apple scab fungicide options are best applied when the weather is warm. Wait until temperatures are higher than 60 degrees and the blooms or leaves of the tree are wet.'
+],
+    'Apple__Black_rot': 
+[
+'To get rid of apple black rot, consider the following suggestions:',
+
+'1. Cultural practices and fungicides can help control sooty blotch and flyspeck.  ',
+'2. Proper pruning of apples trees and thinning of fruit promote drying and help reduce disease severity.  ',
+'3. Fungicides may also be necessary. ',
+'4. If control measures fail, sooty blotch and flyspeck can be removed with vigorous rubbing.',
+],
+
+    'Apple___Cedar_apple_rust':
+[
+
+'To get rid of apple rust, consider the following suggestions:',
+
+'1. Tolerate leaf spots and fruit infection on apples, hawthorns, serviceberry and other plants in the Rosaceae family. They do not significantly affect the health of the tree if leaf loss does not occur.',
+'2. Do not plant eastern red cedar and juniper plants within a few hundred yards of susceptible Rosaceae plants. This will reduce diseases problems but not completely eliminate them.',
+'3. Inspect nearby juniper and red cedar trees in late winter or early spring. Prune and remove brown, woody galls found before orange, gelatinous structures form in the spring. This will help reduce the level of infection on nearby Rosaceae plants.',
+'4. Prune and remove infected twigs or branches on Rosaceae plants if they occur.',
+],
+    
+   'Apple___healthy': 
+
+
+['The apple leaf is healthy.']
+,
+
+   'Blueberry___healthy': 
+[
+'The bluberry leaf is healthy.']
+,
+
+    'Cherry_(including_sour)___Powdery_mildew':
+[
+'To get rid of cherry powdery mildew, consider the following suggestions:',
+
+'1. Fungicide applications should be started two weeks after bloom when leaves are completely unfolded.',
+'2. Fungicides with an active ingredient of myclobutanil or captan will protect leaves from infection with cherry leaf spot when applied properly.'
+],
+    'Cherry_(including_sour)___healthy': 
+
+['The cherry leaf is healthy.']
+,
+
+'Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot': 
+
+
+['To get rid of corn gray leaf spot, consider the following suggestions:',
+
+'1. During the growing season, foliar fungicides can be used to manage gray leaf spot outbreaks.',
+'2. Farmers must consider the cost of the application and market value of their corn before determining if fungicides will be an economical solution to GLS.',
+]
+#,
+#     'Corn_(maize)___Common_rust_':
+
+
+# 1. To get rid of corn common rust, consider the following suggestions:
+# 2. Use a mild bleach solution, and rinse and dry them thoroughly before putting them away. Rake up and remove fallen or dead leaves and other plant debris. Some gardeners compost vegetation that show signs of rust, expecting the compost pile to heat up enough to kill the spores.
+# """ ,
+
+#     'Corn_(maize)___Northern_Leaf_Blight': #rice
+# """
+
+# To get rid of corn leaf blight, consider the following suggestions:
+
+# 1. Foliar fungicides may be applied early in the growing season to corn seedlings as a risk-management tool for northern corn leaf blight and other corn diseases, including anthracnose leaf blight and corn eyespot. 
+# 2. After northern corn leaf blight is identified during the growing season, fungicides should be applied early in the disease outbreak for maximum effectiveness.
+# 3. Crop rotation remains a solid tactic to help diminish disease threats. Rotating from corn to non-host crops helps reduce favorable environmental conditions for disease pathogens, risk of infection and disease levels. 
+# """
+# , 
+#     'Corn_(maize)___healthy':
+# """
+# The corn leaf is healthy.
+# """
+# , 'Grape___Black_rot':
+# """
+
+# To get rid of grape black rot, consider the following suggestions:
+
+# 1.  Mancozeb, and Ziram are all highly effective against black rot. Because these fungicides are strictly protectants, they must be applied before the fungus infects or enters the plant. They protect fruit and foliage by preventing spore germination. They will not arrest lesion development after infection has occurred.
+# 2. Copper products can be effective if applied at the right time, and some are approved for organic systems. 
+# 3. Probiotic sprays, plant defence-enhancing sprays or sprays containing antagonistic bacteria such as Bacillus spp. may be successful in controlling black rot.
+# """
+# , 'Grape___Esca_(Black_Measles)':
+# """
+
+# To get rid of corn grape ecsa, consider the following suggestions:
+
+# 1. Prune out any and all areas with lesions; grapevines can handle a severe pruning — when in doubt, cut it out.
+# 2. Prevention is key when dealing with grape black rot. During your fall clean-up, make sure that all mummies have been removed from the vine and all plant material on the ground below is destroyed.
+# """
+# , 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)':
+# """
+
+# To get rid of grape leaf blight, consider the following suggestions:
+
+# 1. Spraying of the grapevines at 3-4 leaf stage with fungicides like Bordeaux mixture @ 0.8% or Copper Oxychloride @ 0.25% or Carbendazim @ 0.1% are effective against this disease.
+# 2. Horticultural mineral oils will denature the fungus since most of its mycelia reside on the outside of grape tissues. Apply a 1-2% oil treatment to the vines within 2 days of the water application.
+# """
+#     , 'Grape___healthy':
+# """
+# The grape leaf is healthy.
+# """
+# , 'Orange___Haunglongbing_(Citrus_greening)':
+# """
+
+# To get rid of citrus greening, consider the following suggestions:
+
+# 1. Currently there is no cure for citrus greening disease; the best control strategy is to keep healthy plants from being infected.
+# 2. One of the most effective ways to prevent the disease is to avoid moving plants and plant materials from areas under regulatory quarantine or where the insect or disease is present.
+# """
+#     , 'Peach___Bacterial_spot':
+# """
+
+# To get rid of peach bacterial spot, consider the following suggestions:
+
+# 1. Compounds available for use on peach and nectarine for bacterial spot include copper, oxytetracycline (Mycoshield and generic equivalents), and syllit+captan; however, repeated applications are typically necessary for even minimal disease control.
+# 2. Remove symptomatic plants from the field or greenhouse to prevent the spread of bacteria to healthy plants.
+# 3. Burn, bury or hot compost the affected plants and DO NOT eat symptomatic fruit.
+# """
+#         , 'Peach___healthy':
+# """
+# The peach leaf is healthy.
+# """
+#         , 'Pepper,_bell___Bacterial_spot':
+# """
+
+# To get rid of peach bacterial spot, consider the following suggestions:
+
+# 1. Compounds available for bacterial spot include copper, oxytetracycline (Mycoshield and generic equivalents), and syllit+captan; however, repeated applications are typically necessary for even minimal disease control.
+# 2. Remove symptomatic plants from the field or greenhouse to prevent the spread of bacteria to healthy plants.
+# 3. Burn, bury or hot compost the affected plants and DO NOT eat symptomatic fruit.
+# """
+# , 'Pepper,_bell___healthy':
+# """
+# The pepper bell leaf is healthy.
+# """
+#     , 'Potato___Early_blight':
+# """
+
+# To get rid of potato early blight, consider the following suggestions:
+
+# 1. Treatment of early blight includes prevention by planting potato varieties that are resistant to the disease.
+# 2. Late maturing are more resistant than early maturing varieties. 
+# 3. Avoid overhead irrigation and allow for sufficient aeration between plants to allow the foliage to dry as quickly as possible.
+# """
+#     , 'Potato___Late_blight':
+# """
+
+# To get rid of potato late blight, consider the following suggestions:
+
+# 1. The severe late blight can be effectively managed with prophylactic spray of mancozeb at 0.25% followed by cymoxanil+mancozeb or dimethomorph+mancozeb at 0.3% at the onset of disease and one more spray of mancozeb at 0.25% seven days after application of systemic fungicides.
+# 2. Late blight is controlled by eliminating cull piles and volunteer potatoes, using proper harvesting and storage practices, and applying fungicides when necessary. 
+# """
+# , 'Potato___healthy':
+# """
+# The potato leaf is healthy.
+# """
+#     , 'Raspberry___healthy':
+# """
+# The raspberry leaf is healthy.
+# """
+#  , 'Soybean___healthy':
+# """
+# The soyabean leaf is healthy.
+# """
+# , 'Squash___Powdery_mildew':
+# """
+
+# To get rid of squash powdery mildew, consider the following suggestions:
+
+# 1. A better treatment solution for your squash plants is baking soda.
+# 2. Provide good air circulation by spacing squash plants several feet apart.
+# """
+# , 'Strawberry___Leaf_scorch':
+# """
+
+# To get rid of strawberry leaf scorch, consider the following suggestions:
+
+# 1. If the disease is detected early, its development may be slowed using fungicides.
+# 2. Removing those dead leaves can clear out spores or other items on the leaves. That can spread disease to your strawberries or make them mold. And removing the dead leaves, removes homes for slugs and other pest.
+# """ 
+#      , 'Strawberry___healthy':
+# """
+# The strawberry leaf is healthy.
+# """
+#     , 'Tomato___Bacterial_spot':
+# """
+
+# To get rid of tomato bacterial spot, consider the following suggestions:
+
+# 1. Remove symptomatic plants from the field or greenhouse to prevent the spread of bacteria to healthy plants. 
+# 2. Burn, bury or hot compost the affected plants and DO NOT eat symptomatic fruit."""
+    
+# , 'Tomato___Early_blight':
+# """
+
+# To get rid of tomato early blight, consider the following suggestions:
+
+# 1. Thoroughly spray the plant (bottoms of leaves also) with Bonide Liquid Copper Fungicide concentrate or Bonide Tomato & Vegetable.
+# 2. Destroy infested plants by burning or burying them. Rotate vegetables to different parts of your garden each year to avoid areas where infested debris (and thus spores of Alternaria solani) may be present."""   
+
+#     , 'Tomato___Late_blight':
+# """
+
+# To get rid of tomato late blight, consider the following suggestions:
+
+# 1. Baking soda has fungicidal properties that can stop or reduce the spread of early and late tomato blight. Baking soda sprays typically contain about 1 teaspoon baking soda dissolved into 1 quart of warm water. Adding a drop of liquid dish soap or 2 1/2 tablespoons vegetable oil helps the solution stick to your plant.
+# 2. If blight is detected on shoots or leaves, remove them from the plant and dispose of diseased foliage off-site."""
+   
+# , 'Tomato___Leaf_Mold':
+# """
+
+# To get rid of tomato leaf mold, consider the following suggestions:
+
+# 1. Use fans and avoid overhead watering to minimize leaf wetness.
+# 2. Also, stake and prune plants to increase ventilation. If the disease is detected, apply a fungicide according to the manufacturer's instructions at the first sign of infection.
+# """
+# , 'Tomato___Septoria_leaf_spot':
+# """
+
+# To get rid of tomato septoria leaf spot, consider the following suggestions:
+
+# 1. Remove diseased leaves. If caught early, the lower infected leaves can be removed and burned or destroyed. 
+# 2. Improve air circulation around the plants. If the plants can still be handled without breaking them, stake or cage the plants to raise them off the ground and promote faster drying of the foliage."""
+
+# , 'Tomato___Spider_mites Two-spotted_spider_mite':
+# """
+
+# To get rid of tomato two spotted spider mite, consider the following suggestions:
+
+# 1. The rubbing alcohol you have around the house also can kill spider mites. Soak cotton balls in rubbing alcohol and wipe across the foliage of infested houseplants.
+# 2. Make sure that all plants get the necessary amount of sunlight for the variety.
+# """
+# , 'Tomato___Target_Spot':
+# """
+
+# To get rid of tomato target spot, consider the following suggestions:
+
+# 1. Remove a few branches from the lower part of the plants to allow better airflow at the base.
+# 2. Remove and burn the lower leaves as soon as the disease is seen, especially after the lower fruit trusses have been picked.
+# """
+# , 'Tomato___Tomato_Yellow_Leaf_Curl_Virus':
+# """
+
+# To get rid of tomato yellow leaf curls virus spot, consider the following suggestions:
+
+# 1. Rogue tomato or pepper plants with early symptoms of TYLCV can be removed from fields by placing infected-looking plants in plastic bags immediately at the beginning season, especially during first three to four weeks.
+# 2. Maintain good weed control in the field and surrounding areas.
+# """
+# , 'Tomato___Tomato_mosaic_virus':
+# """
+
+# To get rid of tomato target spot, consider the following suggestions:
+
+# 1. Remove all infected plants and destroy them. Do NOT put them in the compost pile, as the virus may persist in infected plant matter. 
+# 2. Monitor the rest of your plants closely, especially those that were located near infected plants.
+# """
+#     , 'tomato___healthy':
+# """
+# The', tomato leaf is healthy.
+# """
+}
+
+
 def home(request):
 
     url = f'https://newsapi.org/v2/everything?q=kharif + crop&from=2021-11-27&sortBy=publishedAt&apiKey={API_KEY}'
@@ -448,7 +722,10 @@ def disease_result(request):
 
         res=dis_class[preds[0].item()]
         print("xxxxxxxxxxxxxxxxx   ",res)
-        context['result'] = res
+        solutions=dis_dic['Apple__Apple_scab']
+        context['result'] = 'Apple__Apple_scab'
+        context['recommendations'] = solutions
+        print(solutions)
     return render( request, 'home/disease_result.html',context)
 
 
