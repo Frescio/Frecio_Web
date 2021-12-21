@@ -97,5 +97,4 @@ class contract(models.Model):
     crop_name = models.CharField(max_length=20)
     price = models.IntegerField()
     quantity = models.IntegerField()
-    date = models.DateField()
     # photo = models.ImageField(upload_to="image/crops", null=True )
