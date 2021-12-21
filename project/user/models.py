@@ -91,3 +91,10 @@ class location(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     state = models.CharField(max_length=20)
     city = models.CharField(max_length=20)
+
+class contract(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    crop_name = models.CharField(max_length=20)
+    price = models.IntegerField()
+    quantity = models.IntegerField()
+    # photo = models.ImageField(upload_to="image/crops", null=True )

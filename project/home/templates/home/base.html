@@ -261,6 +261,20 @@ input[type="file"]{
   margin-left:60px;
 }
 
+.goog-logo-link {
+    display:none !important;
+ }
+ 
+ .goog-te-gadget {
+    color: transparent !important;
+ }
+ 
+ .goog-te-gadget .goog-te-combo {
+    color: black !important;
+ }
+    
+
+
 </style>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
@@ -372,6 +386,7 @@ input[type="file"]{
                                 <li><a style=" color:white;" href="{% url 'register' %}" role="button">Signup/Login</a>
                                 </li>
                                 {% endif %}
+                                <div id="google_translate_element"></div>
                             </ul>
                         </div>
                     </div>
@@ -380,8 +395,8 @@ input[type="file"]{
             </div>
             <div class="header-bottom">
                 <div class="container">
-                    <div class="top-nav">
-                        <nav class="navbar navbar-default">
+                    <div class="top-nav" >
+                        <nav class="navbar navbar-default"  >
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                                     data-target="#bs-example-navbar-collapse-1">
@@ -392,15 +407,14 @@ input[type="file"]{
                                 </button>
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                                 <ul class="nav navbar-nav">
                                     
-                                    <li class="list-border"><a href="#" class="list-border dropdown-toggle hvr-bounce-to-bottom"
+                                    <li class="list-border" style="width:auto;" ><a href="#" class="list-border dropdown-toggle hvr-bounce-to-bottom"
                                             data-toggle="dropdown" role="button" aria-haspopup="true"
                                             aria-expanded="false">E-Bazaar<span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'view_all_crops' %}">View
-                                                    Crops</a></li>
+                                        <ul style="width:auto;" class="dropdown-menu">
+                                            <li><a class="hvr-bounce-to-bottom" href="{% url 'view_all_crops' %}">All Crops</a></li>
                                             <li><a class="hvr-bounce-to-bottom" href="{% url 'my_crops' %}">My Crops</a>
                                             </li>
                                             <li><a class="hvr-bounce-to-bottom" href="{% url 'my_wishlist' %}">My
@@ -408,17 +422,28 @@ input[type="file"]{
                                             <li><a class="hvr-bounce-to-bottom" href="{% url 'mandi_pred' %}">Mandi Prices</a></li>        
                                         </ul>
                                     </li>
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'fert_pred' %} active {% endif %} "
-                                        href="{% url 'fert_pred' %}">Fertilizer Prediction</a></li>
+                                    <li style="width:auto;" class="list-border"><a href="#" class="list-border dropdown-toggle hvr-bounce-to-bottom"
+                                        data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">Farming Contracts<span class="caret"></span></a>
+                                    <ul style="width:auto;" class="dropdown-menu">
+                                        <li><a class="hvr-bounce-to-bottom" href="{% url 'view_all_contracts' %}">All contracts</a></li>
+                                        <li><a class="hvr-bounce-to-bottom" href="{% url 'my_contracts' %}">My Contracts</a>
+                                        </li>
+                                        <!-- <li><a class="hvr-bounce-to-bottom" href="{% url 'my_wishlist' %}">My Wishlist</a></li> -->
+                                        <!-- <li><a class="hvr-bounce-to-bottom" href="{% url 'mandi_pred' %}">Mandi Prices</a></li>         -->
+                                    </ul>
+                                </li>
+                                    <li style="width:auto;"><a class="list-border {% if request.resolver_match.url_name == 'fert_pred' %} active {% endif %} "
+                                        href="{% url 'fert_pred' %}">Fertilizer Recommendation</a></li>
 
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'pest_pred' %} active {% endif %} " href="{% url 'pest_pred' %}">Pest Prediction</a></li>
+                                    <li style="width:auto;"><a class="list-border {% if request.resolver_match.url_name == 'pest_pred' %} active {% endif %} " href="{% url 'pest_pred' %}">Pesticide Prediction</a></li>
                                     
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'dis_pred' %} active {% endif %} " href="{% url 'dis_pred' %}">Disease Prediction</a></li>
+                                    <li style="width:auto;"><a class="list-border {% if request.resolver_match.url_name == 'dis_pred' %} active {% endif %} " href="{% url 'dis_pred' %}">Disease Prediction</a></li>
                                     
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'aboutus' %} active {% endif %} "
-                                        href="{% url 'aboutus' %}">About</a></li>
-                                    <li><a class="list-border {% if request.resolver_match.url_name == 'contactus' %} active {% endif %} "
-                                            href="{% url 'contactus' %}">Contact</a></li>
+                                    <li style="width:auto;"><a class="list-border {% if request.resolver_match.url_name == 'aboutus' %} active {% endif %} "
+                                        href="{% url 'aboutus' %}">About Us</a></li>
+                                    <li style="width:auto;"><a class="list-border {% if request.resolver_match.url_name == 'contactus' %} active {% endif %} "
+                                            href="{% url 'contactus' %}">Contact Us</a></li>
                                 </ul>
                                 <div class="clearfix"> </div>
                             </div>
@@ -530,6 +555,15 @@ input[type="file"]{
                 imgHeight: 768
             })
         </script>
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+            </script>
+
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
         <!-- //parallax -->
     </body>
 

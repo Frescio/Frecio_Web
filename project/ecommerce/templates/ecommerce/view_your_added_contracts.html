@@ -295,7 +295,7 @@
 <div class="container2">
   <div class="center">
   <div class="box bg-1">
-		<button id="myBtn" class="button2 button--winona button--border-thin button--round-l" data-text="Uplaod new crop details"><span>Click here to uplaod new crop details</span></button>
+		<button id="myBtn" class="button2 button--winona button--border-thin button--round-l" data-text="Uplaod new contract details"><span>Click here to uplaod new contract details</span></button>
   </div>
 </div>
 </div>
@@ -304,28 +304,27 @@
   <div class="row" style=" padding-left: 70px; padding-right: 70px">
     {% for some_crop in crops_added %}
 
-        <div class="col-lg-4" id="some_crop-{{ some_crop.id }}" style="  padding-left: 25px; padding-right: 25px; margin-bottom: 200px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:220px;  max-height:220px; min-height:220px; ">
-          <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.photo.url }}">
+        <div class="col-lg-4" id="some_crop-{{ some_crop.id }}" style=" border: 3px solid gray; margin-left:20px; margin-right:20px; padding-left: 25px; padding-right: 25px; margin-bottom: 200px; display: block; width: 20%; max-width:20%; padding-bottom: 30px; height:170px;  max-height:170px; min-height:170px; ">
+          <!-- <img class="thumbnail" style="width: 100%; height: 90%; " src="{{ some_crop.photo.url }}"> -->
           <div class="box-element product">
-            <h6><strong>{{some_crop.crop_name}}</strong></h6>
-            <h6><strong>Quantity: {{some_crop.quantity}} quaintals</strong></h6>
-            
+            <h4><strong>{{some_crop.crop_name}}</strong></h4>
+            <h6>Contract Price: Rs. {{some_crop.price}}</h6>
+            <h6>Quantity Required: {{some_crop.quantity}} quaintals</h6>
+
             <hr>
-
             <div style="display: inline-block;"> 
-              {% include 'ecommerce/editModal.html' with edit_type='some_crop' %}
-              
-              <button style=" float:left; margin-right:15px;" class="btn btn-outline-secondary add-btn" href="#" data-toggle="modal" data-target="#some_crop-{{ some_crop.id }} .editModal">Edit</button>
+                {% include 'ecommerce/editModalContract.html' with edit_type='some_crop' %}
+                
+                <button style=" float:left; margin-right:15px;" class="btn btn-outline-secondary add-btn" href="#" data-toggle="modal" data-target="#some_crop-{{ some_crop.id }} .editModal">Edit</button>
 
-              <form style="float:left;" action="" method="post">
+                <form style="float:left;" action="" method="post">
                 {% csrf_token %}
                 <input type="hidden" value={{ some_crop.id}} name="crop_id">
                 <button class="btn btn-outline-secondary add-btn" type="submit" name="submit" value="delete_crop">Delete</button>
-              </form>
+                </form>
             </div>
-            <h4 style="display: inline-block; float: right"><strong>Rs. {{some_crop.price}}</strong></h4>
+            <!-- <h4 style="display: inline-block; float: right"><strong>Rs. {{some_crop.price}}</strong></h4> -->
             
-            <hr>
           </div>
         </div>
             
@@ -342,7 +341,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="close">&times;</span>
-        <h3><strong>Crop Details</strong></h3>
+        <h3><strong>Contract Details</strong></h3>
       </div>
       <div class="modal-body">
         </br>
@@ -356,7 +355,7 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
               integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 
-            <label for="floatingInput">Crop Name</label>
+            <label for="floatingInput">Crop Required</label>
             <select id="select-state" class="form-control" name="crop_name" placeholder="Select a crop"
               style="font-weight: bold" required>
               <option></option>
@@ -367,24 +366,20 @@
           </div>
           </br>
           <div class="form-floating mb-3">
-            <label for="floatingInput">Crop Price per Quintals</label>
+            <label for="floatingInput">Price per Quintals</label>
             <input type="text" class="form-control" name="price" id="floatingInput"
               placeholder="Crop Price per Quintals" required>
 
           </div>
           </br>
           <div class="form-floating mb-3">
-            <label for="floatingInput">Quantity Available (in Quintals)</label>
+            <label for="floatingInput">Quantity Required (in Quintals)</label>
             <input type="text" class="form-control" name="quantity" id="floatingInput"
               placeholder="Quantity Available (in Quintals)" required>
 
           </div>
           </br>
-          <div class="form-floating mb-3">
-            <label class="input-group-text" for="inputGroupFile01">Upload Crop Image</label>
-            <input type="file" class="form-control" value={{crop.photo}} id="inputGroupFile01" name="photo" required>
-          </div>
-          </br>
+          
 
       </div>
       <div class="modal-footer">
