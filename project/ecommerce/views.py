@@ -30,6 +30,7 @@ def mycontracts(request):
                         price = request.POST['price']
                         quantity = request.POST['quantity']
                         date = request.POST['date']
+                    
                         # photo = request.FILES['photo']
                         new_crop = contract( user=request.user, crop_name = crop_name, price=price, quantity=quantity, date=date)
                         new_crop.save()

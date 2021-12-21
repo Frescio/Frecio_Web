@@ -56,9 +56,10 @@
                 <div class="form-floating mb-3">
                   <label for="floatingInput">Deadline</label>
                   <input type="date" class="form-control" name="date" id="floatingInput"
-                      value='{{some_crop.date|date:"D d M Y"}}' required>
+                      value='{{some_crop.date|date:"yy-m-d"}}' required>
                       <!-- <input type="date" class="form-control" name="start_year" id="floatingInputdate" placeholder="Stream" required> -->
                   </div>
+                  <!-- {{some_crop.date|date:"m/d/yy"}} -->
                   <!-- {{some_crop.date}}
                   {{some_crop.date|date:"D d M Y"}} -->
                   </br>
