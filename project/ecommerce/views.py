@@ -29,8 +29,9 @@ def mycontracts(request):
                         crop_name = request.POST['crop_name']
                         price = request.POST['price']
                         quantity = request.POST['quantity']
+                        date = request.POST['date']
                         # photo = request.FILES['photo']
-                        new_crop = contract( user=request.user, crop_name = crop_name, price=price, quantity=quantity)
+                        new_crop = contract( user=request.user, crop_name = crop_name, price=price, quantity=quantity, date=date)
                         new_crop.save()
                         print(new_crop)
                     # elif request.POST.get('submit') == "edit_crop":
@@ -45,8 +46,9 @@ def mycontracts(request):
                         crop_name = request.POST['crop_name']
                         price = request.POST['price']
                         quantity = request.POST['quantity']
+                        date = request.POST['date']
                         # photo = request.FILES['photo']
-                        contract.objects.filter(id=request.POST.get('crop_id')).update(crop_name=crop_name,price=price,quantity=quantity)
+                        contract.objects.filter(id=request.POST.get('crop_id')).update(crop_name=crop_name,price=price,quantity=quantity, date=date)
                         
                 context = {}
                 # context['crop'] = {'sdf','asd','lol'}

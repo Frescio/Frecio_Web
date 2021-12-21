@@ -225,7 +225,7 @@
     {% for some_crop in all_crops %}
 
     <li class="col-lg-4" id="some_crop-{{ some_crop.id }}"
-      style=" padding-left: 30px; border: 3px solid gray; margin-bottom: 250px; margin-left:20px; margin-right:20px; display: block; width: 30%; max-width:30%; padding-bottom: 30px; height:200px;  max-height:200px; min-height:200px; ">
+      style=" padding-left: 30px; border: 3px solid gray; margin-bottom: 100px; margin-left:20px; margin-right:20px; display: block; width: 30%; max-width:30%; padding-bottom: 30px; height:210px;  max-height:210px; min-height:210px; ">
       <a hidden>{{some_crop.crop_name}}</a>
       <a hidden> {{some_crop.user.location_set.all.0.state}}</a>
       <a hidden>{{some_crop.user.location_set.all.0.city}}</a>
@@ -235,6 +235,7 @@
         <h6>Contractor Name: {{some_crop.user.first_name}} {{some_crop.user.last_name}}</h6>
         <h6>Quantity Required: {{some_crop.quantity}} quintals</h6>
         <h6>Contract Price: {{some_crop.price}} quintals</h6>
+        <h6>Deadline: {{some_crop.date}}</h6>
 
         <hr>
 
